@@ -8,7 +8,7 @@ function ForgetPassord () {
     const handleSubmit = async (e) => {
         e.preventDefault();
     
-            await axios.put("/users/api/reset-password", {
+            await axios.put("https://ultimatebackend.herokuapp.com/users/api/reset-password", {
                 email
             })
             .then(res => {

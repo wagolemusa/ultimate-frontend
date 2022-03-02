@@ -99,7 +99,7 @@ function Register () {
             .then(res => {
 
                 if(res.status === 201){
-                    window.location.replace("/registerSuccessfully")
+                    window.location.replace("https://ultimatebackend.herokuapp.com/registerSuccessfully")
                 }else{
                     // setError(res.data)  
                     console.log(res.data)

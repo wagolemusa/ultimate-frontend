@@ -15,7 +15,7 @@ function Login () {
       setError("");
       dispatch({ type: "LOGIN_START" });
       try {
-        const res = await axios.post("/users/api/authenticate", {
+        const res = await axios.post("https://ultimatebackend.herokuapp.com/users/api/authenticate", {
           email: userRef.current.value,
           password: passwordRef.current.value,
         });
