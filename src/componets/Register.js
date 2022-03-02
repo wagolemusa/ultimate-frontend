@@ -87,7 +87,7 @@ function Register () {
         setError("");
    
 
-           await axios.post("/users/api/register", {
+           await axios.post("https://ultimatebackend.herokuapp.com/users/api/register", {
                 firstname,
                 lastname,
                 middlename,
@@ -99,7 +99,7 @@ function Register () {
             .then(res => {
 
                 if(res.status === 201){
-                    window.location.replace("https://ultimatebackend.herokuapp.com/registerSuccessfully")
+                    window.location.replace("/registerSuccessfully")
                 }else{
                     // setError(res.data)  
                     console.log(res.data)
