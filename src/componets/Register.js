@@ -119,7 +119,7 @@ function Register () {
             <div class="row">
                 
                 <div class="login-form-1">
-                    {errors && <p>{errors}</p>}
+                    {errors && <p>{errors.msg}</p>}
 
              
                     <h3>Create Account</h3>
