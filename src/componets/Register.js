@@ -3,41 +3,79 @@ import axios from 'axios'
 
 
 function Register () {
-    const [firstname, setFirstname] = useState("")
-    const [lastname, setLastname ] = useState("")
-    const [middlename, setMiddle ] = useState("")
-    const [phonenumber, setPhonenumber ] = useState("")
-    const [idnumber, setIdnumber] = useState("")
-    const [email , setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    const [errors, setError] = useState("");
+    // const [firstname, setFirstname] = useState("")
+    // const [lastname, setLastname ] = useState("")
+    // const [middlename, setMiddle ] = useState("")
+    // const [phonenumber, setPhonenumber ] = useState("")
+    // const [idnumber, setIdnumber] = useState("")
+    // const [email , setEmail] = useState("")
+    // const [password, setPassword] = useState("")
+    // const [errors, setError] = useState("null");
 
 
-    // const initialValues = {
-    //     firstname: "",
-    //     lastname: "",
-    //     middlename: "",
-    //     phonenumber: "",
-    //     idnumber: "",
-    //     email: "",
-    //     password: ""
-    // }
+    const initialValues = {
+        firstname: "",
+        lastname: "",
+        middlename: "",
+        phonenumber: "",
+        idnumber: "",
+        email: "",
+        password: ""
+    }
 
-    // const [formValues, setFormValues] = useState(initialValues);
-    // const [formErrors, setFormErrors] = useState({})
-    // const [ isSubmit, setIsSubmit] = useState(false)
+    const [formValues, setFormValues] = useState(initialValues);
+    const [error, setError] = useState("");
+    const [success, setSuccess] = useState("");
+    
 
-    // const handleChange = (e) => {
-    //     const  { name, value } = e.target;
-    //     setFormValues({ ...formValues, [name]: value });
-    // }
+    const errorDiv = error 
+        ? <div className="error">
+            <i class="material-icons error-icon">error_outline</i>
+            {error}
+          </div> 
+        : '';
+
+    const handleChange = (e) => {
+        const  { name, value } = e.target;
+        setFormValues({ ...formValues, [name]: value });
+    }
 
 
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     setFormErrors(validate(formValues));
-    //     setIsSubmit(true);
-    // }
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setError(null);
+  
+          const response = await axios.post("https://ultimatebackend.herokuapp.com/users/api/register",formValues)
+            
+          .catch((err) => {
+              console.log(err.response.data)
+            if (err && err.response) setError(err.response.data.message);
+            setSuccess(null);
+          });
+          console.log(response.data)
+            if (response && response.data) {
+            setError(null);
+            setSuccess(response.data.message);
+            }
+            if(response.status === 201){
+                window.location.replace("/registerSuccessfully")
+            }
+
+
+        //   .then(res => {
+        //         if(res.status === 201){
+        //             window.location.replace("/registerSuccessfully")
+        //         }
+        //         console.log(res.data.msg)
+        //         //  setError(res.data.errors)
+        //     }).catch(res => {
+        //         // console.log(res.data.errors)
+        //         setError(res.data.error);
+        //     })
+       
+    }
+
+
     // useEffect(() => {
     //     console.log(formErrors);
     //     if (Object.keys(formErrors).length === 0 && isSubmit){
@@ -71,8 +109,6 @@ function Register () {
 
     //     if(!values.email){
     //         errors.email = "Email Address Required";
-    //     }else if(!regex.test(values.email)){
-    //         errors.email = "This not a valid email format!"
     //     }
     //     if(!values.password){
     //         errors.password = "Password is Required"
@@ -82,106 +118,118 @@ function Register () {
     //     return errors;
     // }
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setError("");
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     setError("");
    
 
-           await axios.post("https://ultimatebackend.herokuapp.com/users/api/register", {
-                firstname,
-                lastname,
-                middlename,
-                phonenumber,
-                idnumber,
-                email,
-                password
-            })  
-            .then(res => {
+    //        await axios.post("https://ultimatebackend.herokuapp.com/users/api/register", {
+    //             firstname,
+    //             lastname,
+    //             middlename,
+    //             phonenumber,
+    //             idnumber,
+    //             email,
+    //             password
+    //         })  
+    //         .then(res => {
 
-                if(res.status === 201){
-                    window.location.replace("/registerSuccessfully")
-                }else{
-                    // setError(res.data)  
-                    console.log(res.data)
-                }
-         
-        })
-        
-        
-        
-    }
+    //             if(res.status === 201){
+    //                 window.location.replace("/registerSuccessfully")
+    //             }
+    //             if (!res.success) {
+    //                console.log(res.data)
+    //                setError(res.data.errors);
+    //             // throw Error(res.data)
+    //             }
+    //             })
+    //             .catch(err => {
+    //                 setError(err);
+    //             })
+    //     }
 
 
     return (
         <div>
         <div class="container login-container">
+        {/* {errors.length && ( // Conditionally render our errors
+                            errors.map((error) => (
+                                <p key={error.value} msg={error.msg} />
+                            ))
+                        )} */}
 
+            {/* <li key="{error}">{errors.message}</li> */}
+            {/* {errorDiv} */}
             <div class="row">
                 
                 <div class="login-form-1">
-                    {errors && <p>{errors.msg}</p>}
+
+                    {/* {errors && <p>{errors}</p>} */}
+
+                    {/* {errors[0]} */}
+
+                    {/* {error && (
+                        <p className="error"> {error} </p>
+                    )}
+               */}
+
+            {!error && <p>{success ? success : ""}</p>}
+                {!success && <p>{error ? error : ""}</p>}
 
              
                     <h3>Create Account</h3>
                     <form onSubmit={handleSubmit}>
                         <div class="form-group">
-                            <input type="text" name="firstname" class="form-control" placeholder="First Name "
-                                // value={ formValues.firstname}
-                                // onChange={handleChange}
-                                onChange={e=>setFirstname(e.target.value)} 
+                            <input type="text" name="firstname" class="form-control" placeholder="First Name " required
+                                value={ formValues.firstname}
+                                onChange={handleChange}
+                                // onChange={e=>setFirstname(e.target.value)} 
                             />
                         </div><br/>
-                        {/* <p>{formErrors.firstname}</p> */}
                         <div class="form-group">
-                            <input type="text" name="lastname" class="form-control" placeholder="Last Name"
-                            //  value={ formValues.lastname}
-                            //  onChange={handleChange}
-                             onChange={e=>setLastname(e.target.value)}
+                            <input type="text" name="lastname" class="form-control" placeholder="Last Name" required
+                             value={ formValues.lastname}
+                             onChange={handleChange}
+                            //  onChange={e=>setLastname(e.target.value)}
                              />
                         </div>
                         <br/>
-                        {/* <p>{formErrors.lastname}</p> */}
                         <div class="form-group">
-                            <input type="text"  name="middlename" class="form-control" placeholder="Middle Name" 
-                                // value={ formValues.middlename}
-                                // onChange={handleChange}
-                                onChange={e=>setMiddle(e.target.value)}
+                            <input type="text"  name="middlename" class="form-control" placeholder="Middle Name" required
+                                value={ formValues.middlename}
+                                onChange={handleChange}
+                                // onChange={e=>setMiddle(e.target.value)}
                                 />
                         </div>
                         <br/>
-                        {/* <p>{formErrors.middlename}</p> */}
                         <div class="form-group">
-                            <input type="number" name="phonenumber" class="form-control" placeholder="Phone Number" 
-                            //    value={ formValues.phonenumber}
-                            //    onChange={handleChange}
-                                onChange={e=>setPhonenumber(e.target.value)} 
+                            <input type="number" name="phonenumber" class="form-control" placeholder="Phone Number" required
+                               value={ formValues.phonenumber}
+                               onChange={handleChange}
+                                // onChange={e=>setPhonenumber(e.target.value)} 
                                 />
                         </div><br/>
-                        {/* <p>{formErrors.phonenumber}</p> */}
                         <div class="form-group">
-                            <input type="number" name="idnumber" class="form-control" placeholder="ID Number"
-                            //    value={ formValues.idnumber}
-                            //    onChange={handleChange}
-                                onChange={e=>setIdnumber(e.target.value)}
+                            <input type="number" name="idnumber" class="form-control" placeholder="ID Number" required
+                               value={ formValues.idnumber}
+                               onChange={handleChange}
+                                // onChange={e=>setIdnumber(e.target.value)}
                                 />
                         </div><br/>
-                        {/* <p>{formErrors.idnumber}</p> */}
                         <div class="form-group">
-                            <input type="text" name="email" class="form-control" placeholder="Your Email"
-                            //    value={ formValues.email}
-                                // onChange={handleChange}
-                                onChange={e=>setEmail(e.target.value)}
+                            <input type="email" name="email" class="form-control" placeholder="Your Email" required
+                               value={ formValues.email}
+                                onChange={handleChange}
+                                // onChange={e=>setEmail(e.target.value)}
                                 />
                         </div><br/>
-                        {/* <p>{formErrors.email}</p> */}
                         <div class="form-group">
-                            <input type="password" name="password" class="form-control" placeholder="Your Password"
-                            //    value={ formValues.password} 
-                            //    onChange={handleChange}
-                                onChange={e=>setPassword(e.target.value)} 
+                            <input type="password" name="password" class="form-control" placeholder="Your Password" required
+                               value={ formValues.password} 
+                               onChange={handleChange}
+                                // onChange={e=>setPassword(e.target.value)} 
                                 />
                         </div><br/>
-                        {/* <p>{ formErrors.password}</p> */}
                         <div class="form-group">
                             <button type="submit" class="btnSubmit">Create Account</button>
                         </div><br/>
