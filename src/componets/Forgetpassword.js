@@ -51,7 +51,7 @@ function ForgetPassord() {
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
-                                <p key={i}> {item} </p>
+                                <h4 key={i}> {item} </h4>
                             </div>
                         )) : 
                         
