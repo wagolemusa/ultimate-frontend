@@ -23,16 +23,13 @@ function Register () {
         setFormValues({ ...formValues, [name]: value });
     }
 
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null);
   
           const response = await axios.post("https://ultimatebackend.herokuapp.com/users/api/register",formValues)
          
-          
           .catch((err) => {
-
               console.log(err.response.data)
             if (err && err.response) setError(err.response.data.message);
             setSuccess(null);
@@ -58,12 +55,11 @@ function Register () {
     return (
         <div>
         <div class="container login-container">
-
-            <div class="row">
-                
+            <div class="row"> 
                 <div class="login-form-1">
+                <h3>Create Account</h3>
 
-                        {!error && <p>{success ? success : ""}</p>}
+                        {!error && <div className='suc'>{success ? success : ""}</div>}
 
                         {!success && Array.isArray(error) ? error.map((item, i) => (
                             <div class="notice notice-danger alert fade show" role="alert">
@@ -74,8 +70,6 @@ function Register () {
                             </div>
                         )) : <p>{error} </p>
                         }
-
-                    <h3>Create Account</h3>
                     <form onSubmit={handleSubmit}>
                         <div class="form-group">
                             <input type="text" name="firstname" class="form-control" placeholder="First Name " required
