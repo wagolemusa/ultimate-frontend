@@ -34,7 +34,7 @@ function Login () {
       setSuccess(response.data.message);
       }
       if(response.status === 201){
-          window.location.replace("/")
+          window.location.replace("/dashboard")
        }
 
        if (response?.data?.errors){

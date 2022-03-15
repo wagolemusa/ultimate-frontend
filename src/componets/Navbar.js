@@ -20,8 +20,6 @@ function Navbar() {
                     >
                         <i class="fas fa-bars"></i>
                     </button>
-
-
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                         <a class="navbar-brand mt-2 mt-lg-0" href="/">
@@ -38,9 +36,8 @@ function Navbar() {
 
                     </div>
 
-
-
                     <div class="d-flex align-items-center">
+
                     <Link to="/register" className='nav-link'>Register</Link>
                     <Link to="/login" type="button" class="btn btn-primary">Login</Link>
 
