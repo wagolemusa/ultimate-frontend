@@ -1,9 +1,9 @@
+import React, {useContext} from 'react';
 import './App.css';
-
 import Navbar from './componets/Navbar';
 // import { Routes, Route, Router } from "react-router-dom"
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+// import ProtectedRoute from './pravite/PrivateRoute';
 import Login from './componets/Login';
 import Register from './componets/Register';
 import Home from './componets/Home';
@@ -17,9 +17,15 @@ import Account from './dashboard/Account';
 import Banck from './dashboard/Banck';
 import Dashboard from './dashboard/Dashboard';
 
+import { Context } from './context/Context'
+
 function App() {
+
+  // const { user } = useContext(Context)
+
   return (
     <div className="App">
+     
       <Router>
 
         <Navbar />
@@ -29,12 +35,18 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/forgetpassword" element={<ForgetPassord />} />
           <Route path="/registerSuccessfully" element={<RegisterSuccessfully />} />
-          <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/profile' element={<Profile />} />
+
           <Route path='/account' element={<Account />} />
           <Route path='/bank' element={<Banck /> } />
           <Route path='next' element={<Nextofking /> } />
+
+          {/* <Route path="/dashboard" element={< ProtectedRoute />}> */}
+          <Route path='/dashboard' element={<Dashboard />} />
+          {/* </Route> */}
+
         </Routes>
+
       </Router>
     </div>
   );
