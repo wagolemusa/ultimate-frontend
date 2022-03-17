@@ -19,8 +19,10 @@ function Login () {
  
       
         const response = await axios.post("https://ultimatebackend.herokuapp.com/users/api/authenticate", {
-          email: userRef.current.value,
+          
+        email: userRef.current.value,
           password: passwordRef.current.value,
+          
         })
 
        .catch((err) => {
@@ -30,10 +32,13 @@ function Login () {
     });
 
       if (response && response.data) {
+    
       setError("");
       setSuccess(response.data.message);
       }
+     
       if(response.status === 201){
+        localStorage.setItem('token', response.data.token)
           window.location.replace("/dashboard")
        }
 

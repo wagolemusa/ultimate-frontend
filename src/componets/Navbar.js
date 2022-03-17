@@ -1,7 +1,43 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import f from './f.png'
 import { Link } from "react-router-dom";
+import { Context } from  '../context/Context'
+
+
 function Navbar() {
+    const { user, dispatch } = useContext(Context)
+
+    // const dispatch = useDispatch();
+    // const logout = () => {
+
+    //     const res =  axios.post(`https://ultimatebackend.herokuapp.com/users/api/signout`);
+    //     if(res.status == 200){
+    //         localStorage.clear();
+    //         return window.location('/')
+    //     } else{
+    //           alert("Unable to Logout")  
+            
+    //     }
+    // }
+
+    // const renderLoggedInLinks = () => {
+    //     return(
+    //         <span type="button" class="btn btn-danger" onClick={logout}>Signout</span>
+    //     )
+    // }
+
+    // const renderNonLoggedInLinks = () => {
+    //     return (
+    //         <>
+            
+    //         </>
+    //     )
+    // }
+
+    const handleLogout = () => {
+        dispatch({ type: "LOGOUT" });
+      };
+
     return (
         <div>
 
@@ -38,9 +74,21 @@ function Navbar() {
 
                     <div class="d-flex align-items-center">
 
-                    <Link to="/register" className='nav-link'>Register</Link>
-                    <Link to="/login" type="button" class="btn btn-primary">Login</Link>
+                    {
+                        user? (
+                            <span type="button" class="btn btn-danger" onClick={handleLogout}>Signout</span>
 
+                        ): (
+                            <>
+                            <Link to="/register" className='nav-link'>Register</Link>
+                            <Link to="/login" type="button" class="btn btn-primary">Login</Link>
+                            </>
+                          
+    
+                        )
+                    }
+
+                   
                     </div>
                 </div>
             </nav>
