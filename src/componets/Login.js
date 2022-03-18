@@ -15,7 +15,7 @@ function Login () {
       e.preventDefault();
       setError("");
       setSuccess("");
-      dispatch({ type: "LOGIN_START" });
+    //   dispatch({ type: "LOGIN_START" });
  
       
         const response = await axios.post("https://ultimatebackend.herokuapp.com/users/api/authenticate", {
@@ -38,7 +38,9 @@ function Login () {
       }
      
       if(response.status === 201){
-        localStorage.setItem('token', response.data.token)
+        const { token, user } = response.data;
+        localStorage.setItem('token', token);
+        localStorage.setItem('user', JSON.stringify(user));
           window.location.replace("/dashboard")
        }
 
