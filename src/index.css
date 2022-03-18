@@ -26,12 +26,10 @@
   }
   
   .profileside {
- 
       margin-left: 18vw;
       padding: 2rem;
   
   }
-
 
   .profileStyle {
     padding: 5%;
@@ -53,15 +51,16 @@
 .profileStyle h2{
   font-size: 25px;
   font-weight: 600;
+  padding-top: 20px;
 
 }
   .profileStyle  i{
-      font-size: 40px;
+      font-size: 30px;
       margin-left: 2vw;
   }
   .profileStyle img{
       width: 250px;
-      margin-left: 8vw;
+      margin-left: 2vw;
       height: 250px;
   }
 
@@ -76,4 +75,29 @@
         padding: 1rem;
     
     }
+    .profileStyle h2{
+      font-size: 18px;
+      font-weight: 600;
+      padding-top: 20px;
+    
+    }
+      .profileStyle  i{
+          font-size: 30px;
+          margin-left: 2vw;
+        
+      }
+      .profileStyle img{
+          width: 200px;
+          margin-left: 2vw;
+          height: 200px;
+      }
+      .profileStyle h1{
+        font-size: 28px;
+        font-weight: 600;
+        padding-top: 20px;
+  
+    }
+    .iconstyle span {
+      font-size: 18px;
+  }
   }

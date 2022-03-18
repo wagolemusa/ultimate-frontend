@@ -11,10 +11,7 @@ const Profile = () => {
                 <div className='profileStyle'>
                     <div class="container">
                         <div class="row">
-                            <div className='col-md-6'>
-                            <h1>Wagole musa Alshaddul</h1>
-                            </div>
-                            <div className='col-md-6'>
+                        <div className='col-md-6'>
                             <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
                                 Edit Profile
                             </button>&nbsp;&nbsp;
@@ -22,22 +19,24 @@ const Profile = () => {
                                 Add Social Medial
                             </button>
                             </div>
+                            <div className='col-md-6'>
+                            <h1>Wagole musa Alshaddul</h1>
+                            </div>
                             <br/><br/><br/>
                         </div>
                         <div class="row">
-                            <div className='col-md-6'>
-                                <h2><RiMailStarLine style={{ color: "#00B74A" }} /> <span>  &nbsp; Wagolemusa@gmail.com</span></h2><br />
-                                <h2><RiPhoneLine style={{ color: "#00B74A" }} /> <span>  &nbsp;254725696042 </span></h2><br />
-                                <h2><RiUsbFill style={{ color: "#00B74A" }} /> <span>  &nbsp; 546565665</span></h2>
-
-                            </div>
-
-                            <div className='col-md-6'>
+                        <div className='col-md-6'>
                                 <img
                                     src="https://mdbcdn.b-cdn.net/img/new/standard/city/047.webp"
                                     class="img-fluid rounded"
                                     alt="Townhouses and Skyscrapers"
                                 />
+                            </div>
+                            <div className='col-md-6'>
+                                <h2><RiMailStarLine style={{ color: "#00B74A" }} /> <span>  &nbsp; Wagolemusa@gmail.com</span></h2>
+                                <h2><RiPhoneLine style={{ color: "#00B74A" }} /> <span>  &nbsp;254725696042 </span></h2>
+                                <h2><RiUsbFill style={{ color: "#00B74A" }} /> <span>  &nbsp; 546565665</span></h2>
+
                             </div>
                         </div>
                     </div>

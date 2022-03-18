@@ -66,20 +66,11 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/forgetpassword" element={<ForgetPassord />} />
           <Route path="/registerSuccessfully" element={<RegisterSuccessfully />} />
-          <Route path='/profile' element={<Profile />} />
-          <Route path='/account' element={<Account />} />
-          <Route path='/bank' element={<Banck /> } />
-          <Route path='next' element={<Nextofking /> } />
-         
-
-     
-
-            <Route path='/dashboard' element={auth.authenticate ? <Dashboard /> : <Login />}  />
-         
-     
-          {/* <Route path="/Register">
-           { user ? <Home/> : <Register/>}
-          </Route> */}
+          <Route path='/profile' element={ auth.authenticate ? <Profile />  : <Login />} />
+          <Route path='/account' element={ auth.authenticate ? <Account />  : <Login />} />
+          <Route path='/bank' element={ auth.authenticate ? <Banck />  : <Login /> } />
+          <Route path='next' element={auth.authenticate ? <Nextofking /> : <Login />} />
+          <Route path='/dashboard' element={auth.authenticate ? <Dashboard /> : <Login />}  />
 
           <Route path="*" component={NotFound} />
 
