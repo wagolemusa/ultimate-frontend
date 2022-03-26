@@ -17,12 +17,11 @@ import Nextofking from './dashboard/Nextofking';
 import Account from './dashboard/Account';
 import Banck from './dashboard/Banck';
 import Dashboard from './dashboard/Dashboard';
-
-import { Context } from './context/Context'
-import Auth from './pravite/Auth';
+import CreateNextKin from './dashboard/CreateNextKin';
+import Createprofile from './dashboard/Createprofile';
 import { useDispatch, useSelector } from 'react-redux';
-// import isUserLoggedIn from './pravite/Login';
 import { isUserLoggedIn } from './actions/authactions';
+
 
 function App() {
 
@@ -35,24 +34,6 @@ function App() {
     }
     // dispatch(getInitialData());
 },[]);
-
-  // const { user } = useContext(Context)
-  // const PrivateRoute = ({ component: Component, ...rest }) => (
-  //   <Routes
-  //     {...rest}
-  //     render={props =>
-  //       Auth.getAuth() ? (
-  //         <Component {...props} />
-  //       ) : (
-  //         <Navigate
-  //           to={{
-  //             pathname: "/login"
-  //           }} />
-  
-  //       )}
-  //   />
-  // );
-  
 
   return (
     <div className="App">
@@ -71,6 +52,8 @@ function App() {
           <Route path='/bank' element={ auth.authenticate ? <Banck />  : <Login /> } />
           <Route path='next' element={auth.authenticate ? <Nextofking /> : <Login />} />
           <Route path='/dashboard' element={auth.authenticate ? <Dashboard /> : <Login />}  />
+          <Route path='/create-next-of-kin' element={auth.authenticate ? <CreateNextKin /> : <Login />} />
+          <Route path='/create-profile' element={auth.authenticate ? <Createprofile /> : <Login />} />
 
           <Route path="*" component={NotFound} />
 
