@@ -36,6 +36,8 @@ export default function Sidebar() {
       .links>ul>li:nth-of-type(4),
       .links>ul>li:nth-of-type(5),
       .links>ul>li:nth-of-type(6),
+      .links>ul>li:nth-of-type(7),
+      .links>ul>li:nth-of-type(8),
       .logout
       `,
       {
@@ -100,7 +102,7 @@ export default function Sidebar() {
               >
                 <Link to="/next">
                   <GiTwirlCenter />
-                  <span> Next of king</span>
+                  <span> Next of kin</span>
                 </Link>
               </li>
               <li
@@ -121,6 +123,24 @@ export default function Sidebar() {
                   <span> Profile</span>
                 </Link>
               </li>
+              {/* <li
+                className={currentLink === 7 ? "active" : "none"}
+                onClick={() => setCurrentLink(7)}
+              >
+                <Link to="/create-next-of-kin">
+                  <IoSettings />
+                  <span> Create Next of Kin</span>
+                </Link>
+              </li> */}
+              {/* <li
+                className={currentLink === 7 ? "active" : "none"}
+                onClick={() => setCurrentLink(7)}
+              >
+                <Link to="/create-profile">
+                  <IoSettings />
+                  <span> Create Profile</span>
+                </Link>
+              </li> */}
             </ul>
           </div>
         </div>
