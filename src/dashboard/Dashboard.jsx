@@ -10,7 +10,6 @@ const Dashboard = () =>{
     )
 }
 
-
 export default Dashboard
 
 const Div = styled.div`
