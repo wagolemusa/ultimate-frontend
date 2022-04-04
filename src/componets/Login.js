@@ -41,7 +41,7 @@ function Login () {
         const { token, user } = response.data;
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify(user));
-          window.location.replace("/dashboard")
+          window.location.replace("/create-next-of-kin")
        }
 
        if (response?.data?.errors){

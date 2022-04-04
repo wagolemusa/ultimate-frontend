@@ -36,9 +36,10 @@ const Nextofking = () => {
     useEffect(() => getKin(), []);
     console.log(kin);
 
-    const handleSubmit = async (e) =>{
+
+    // Update
+    const handleUpdate = async (e) => {
         e.preventDefault();
-        setError(null);
         const dataForm = {
             firstname,
             lastname,
@@ -46,8 +47,8 @@ const Nextofking = () => {
             phonenumber,
             idnumber
         }
-        try {
-            const response  = await axios.post("https://ultimatebackend.herokuapp.com/nextofking/api/next/king",dataForm , {
+      
+            const response = await axios.put("https://ultimatebackend.herokuapp.com/nextofking/api/update-next-of-king",dataForm , {
                 headers: {
                     'Authorization': token,
                     'Accept': 'application/json',
@@ -64,61 +65,25 @@ const Nextofking = () => {
               setError(null);
               setSuccess(response.data.message);
               }
-              window.location.reload();
-
-            //   if(response.status === 200){
-            //       window.location.replace("/next")
-            //    }
+              if(response.status === 201){
+                window.location.reload();
+               }
   
-            //    if (response?.data?.errors){
-            //        const messages = response.data.errors.map(item => item.msg)
+               if (response?.data?.errors){
+                   const messages = response.data.errors.map(item => item.msg)
                    
-            //        setError(messages)
-            //    }
-            
-
-        }catch(err){
-            console.log(err)
-        }
+                   setError(messages)
+               }
       
     }
 
-    // Update
-    const handleUpdate = async () => {
-        const dataForm = {
-            firstname,
-            lastname,
-            email,
-            phonenumber,
-            idnumber
-        }
-        try {
-            await axios.put("https://ultimatebackend.herokuapp.com/nextofking/api/update-next-of-king",dataForm , {
-                headers: {
-                    'Authorization': token,
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                }
-            })
-            window.location.reload();
-        } catch (err) { }
-    }
 
-    const nextkin = () => {
-        return (
-            <>
-                <button type="button" class="btn btn-success" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
-                    Add Next of kin
-                </button>
-            </>
-        )
-    }
 
     return (
         <>
             <Sidebar />
             <div className='profileside'>
-                {kin ? (
+            
                 <div className='profileStyle'>
                     <div class="container">
                         <div class="row">
@@ -136,137 +101,83 @@ const Nextofking = () => {
                                 <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal1">
                                     Edit Next of kin
                                 </button>
-                                <button type="button" class="btn btn-success" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
-                                    Add Next of kin
-                                </button>
                             </div>
                         </div>
                     </div>
 
 
                 </div>
-                ):
-                    nextkin()
-                   } 
-            </div>
-
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                {!error && <div className='suc'>{success ? success : ""}</div>}
-
-                            {!success && Array.isArray(error) ? error.map((item, i) => (
-                                <div class="notice notice-danger alert fade show" role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">×</span>
-                                    </button>
-                                    <h4 key={i}> {item} </h4>
-                                </div>
-                            )) : <p>{error} </p>
-                            }
-
-                <form onSubmit={handleSubmit}>
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Create Next of Kin</h5>
-                            <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
-                        </div>
-    
-                        <div class="modal-body">
-                            <div class="md-form">
-                                <input type="text" id="form2Example1" class="form-control" placeholder='First Name' 
-                                 onChange={(e)=>setFirstname(e.target.value)}
-                                />
-
-                            </div><br />
-                            <div class="md-form">
-                                <input type="text" id="form2Example1" class="form-control" placeholder='Last Name' 
-                                 onChange={(e)=>setLastname(e.target.value)}
-                                />
-
-                            </div><br />
-                            <div class="md-form">
-                                <input type="email" id="form2Example1" class="form-control" placeholder='Email' 
-                                 onChange={(e)=>setEmail(e.target.value)}
-                                />
-
-                            </div><br />
-                            <div class="md-form">
-                                <input type="number" id="form2Example1" class="form-control" placeholder='Phone Number'
-                                 onChange={(e)=>setPhonenumber(e.target.value)}
-                                />
-
-                            </div><br />
-                            <div class="md-form">
-                                <input type="number" id="form2Example1" class="form-control" placeholder='ID Number' 
-                                 onChange={(e)=>setIdnumber(e.target.value)}
-                                />
-
-                            </div><br />
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Save changes</button>
-                        </div>
-                       
-                    </div>
-                    </form>
-                </div>
-                
+             
             </div>
 
             {/* Endit form  */}
 
             <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
-                <form onSubmit={handleUpdate}>
+              
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Edit Next of Kin</h5>
+
+                            {!error && 
+                        <div className='suc'>
+                        {success ? success : ""}
+                    </div>}
+                    
+                    {!success && Array.isArray(error) ? error.map((item, i) => (
+                        <div class="notice notice-danger alert fade show" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                            <h4 key={i}> {item} </h4>
+                        </div>
+                    )) : <p>{error} </p>
+                    }
+                    
                             <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
                         </div>
     
                         <div class="modal-body">
+                        <form onSubmit={handleUpdate}>
                             <div class="md-form">
-                                <input type="text" value={firstname} id="form2Example1" class="form-control" placeholder='First Name' 
+                                <input type="text" value={firstname} id="form2Example1" class="form-control" placeholder='First Name' required
                                  onChange={(e)=>setFirstname(e.target.value)}
                                 />
 
                             </div><br />
                             <div class="md-form">
-                                <input type="text" value={lastname} id="form2Example1" class="form-control" placeholder='Last Name' 
+                                <input type="text" value={lastname} id="form2Example1" class="form-control" placeholder='Last Name' required 
                                  onChange={(e)=>setLastname(e.target.value)}
                                 />
 
                             </div><br />
                             <div class="md-form">
-                                <input type="email" value={email} id="form2Example1" class="form-control" placeholder='Email' 
+                                <input type="email" value={email} id="form2Example1" class="form-control" placeholder='Email' required
                                  onChange={(e)=>setEmail(e.target.value)}
                                 />
 
                             </div><br />
                             <div class="md-form">
-                                <input type="number" value={phonenumber} id="form2Example1" class="form-control" placeholder='Phone Number'
+                                <input type="number" value={phonenumber} id="form2Example1" class="form-control" placeholder='Phone Number' required
                                  onChange={(e)=>setPhonenumber(e.target.value)}
                                 />
 
                             </div><br />
                             <div class="md-form">
-                                <input type="number" value={idnumber} id="form2Example1" class="form-control" placeholder='ID Number' 
+                                <input type="number" value={idnumber} id="form2Example1" class="form-control" placeholder='ID Number'  required
                                  onChange={(e)=>setIdnumber(e.target.value)}
                                 />
 
                             </div><br />
-
-                        </div>
-                        <div class="modal-footer">
+                        
                             <button type="submit" class="btn btn-primary">Update</button>
+                            </form>
                         </div>
-                       
+                 
                     </div>
-                    </form>
+                   
                 </div>
-                
-            </div>
+                </div>
+           
         </>
     )
 }
