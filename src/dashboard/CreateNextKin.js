@@ -41,7 +41,7 @@ function CreateNextKin () {
               setSuccess(response.data.message);
               }
               if(response.status === 201){
-                window.location.reload();
+                window.location.replace('/dashboard');
                }
   
                if (response?.data?.errors){
