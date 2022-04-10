@@ -8,7 +8,7 @@ import Register from './componets/Register';
 import Home from './componets/Home';
 import ForgetPassord from './componets/Forgetpassword';
 import RegisterSuccessfully from './componets/RegisterSuccessfully';
-import CreateNextKin from './componets/CreateNextKin';
+import CreateNextKin from './dashboard/CreateNextKin';
 import NotFound from './NotFound';
 
 // Dashboard imports

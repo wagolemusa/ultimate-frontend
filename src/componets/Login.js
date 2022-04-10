@@ -41,7 +41,26 @@ function Login () {
         const { token, user } = response.data;
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify(user));
-          window.location.replace("/create-next-of-kin")
+
+        try{
+            const {data} = await axios.get("https://ultimatebackend.herokuapp.com/nextofking/api/next-of-king", {
+                headers: {
+                    'Authorization': token,
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            })
+            if(data){
+                window.location.assign('/dashboard')
+            }else{
+                
+                window.location.replace("create-next-of-kin")
+            }
+              
+        } catch(error){
+            window.location.replace("create-next-of-kin") 
+        }
+          
        }
 
        if (response?.data?.errors){

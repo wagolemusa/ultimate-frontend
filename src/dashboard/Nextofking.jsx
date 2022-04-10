@@ -14,6 +14,7 @@ const Nextofking = () => {
     const [success, setSuccess] = useState("");
 
     const [kin, setKins] = useState([]);
+
     const getKin = () => {
         axios.get("https://ultimatebackend.herokuapp.com/nextofking/api/next-of-king", {
             headers: {
@@ -86,23 +87,32 @@ const Nextofking = () => {
             
                 <div className='profileStyle'>
                     <div class="container">
-                        <div class="row">
-                        </div>
-                        <div class="row">
-                            <div className='col-md-6'>
-                                <h2> Full Names:<span>  &nbsp;{kin.firstname} &nbsp; {kin.lastname}</span></h2><br />
-                                <h2>Email:<span> &nbsp; {kin.email}</span></h2><br />
-                                <h2>Phone:<span>  &nbsp;{kin.phonenumber} </span></h2><br />
-                                <h2>ID Number:<span>  &nbsp; {kin.idnumber}</span></h2>
+                   
+                    <div class="row">
+                        
+               
+                   
+                        
+                        <div className='col-md-6'>
+                        <h2> Full Names:<span>  &nbsp;{kin.firstname} &nbsp; {kin.lastname}</span></h2><br />
+                        <h2>Email:<span> &nbsp; {kin.email}</span></h2><br />
+                        <h2>Phone:<span>  &nbsp;{kin.phonenumber} </span></h2><br />
+                        <h2>ID Number:<span>  &nbsp; {kin.idnumber}</span></h2>
 
-                            </div>
-
+                    </div>
+                                 
+                        
+                        
+                   
                             <div className='col-md-6'>
-                                <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal1">
-                                    Edit Next of kin
-                                </button>
-                            </div>
+                            <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal1">
+                                Edit Next of kin
+                            </button>
+                     
                         </div>
+                       
+                        
+                    </div>
                     </div>
 
 
