@@ -25,9 +25,9 @@ function ForgetPassord() {
             setError("");
             setSuccess(response.data.message);
         }
-        // if (response.status === 201) {
-        //     window.location.replace("/")
-        // }
+        if (response.status === 201) {
+            window.location.replace("/")
+        }
 
         if (response?.data?.errors) {
             const messages = response.data.errors.map(item => item.msg)
