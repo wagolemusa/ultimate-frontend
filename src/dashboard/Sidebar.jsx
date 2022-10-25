@@ -82,36 +82,45 @@ export default function Sidebar() {
                 className={currentLink === 2 ? "active" : "none"}
                 onClick={() => setCurrentLink(2)}
               >
-                <a href="#">
+                <Link to="/business">
                   <RiDashboard2Fill />
-                  <span> KCB Deposits</span>
-                </a>
+                  <span>Business </span>
+                  </Link>
               </li>
               <li
                 className={currentLink === 3 ? "active" : "none"}
                 onClick={() => setCurrentLink(3)}
               >
-                <a href="#">
-                  <FaAddressCard />
-                  <span>EQUITY Deposts</span>
-                </a>
+              <Link to="/company">
+                  <RiDashboard2Fill />
+                  <span>Company </span>
+                </Link>
               </li>
-              <li
+              {/* <li
                 className={currentLink === 4 ? "active" : "none"}
                 onClick={() => setCurrentLink(4)}
               >
-                <Link to="/next">
+                <Link to="/businesscategory">
                   <GiTwirlCenter />
-                  <span> Next of kin</span>
+                  <span> Business Category</span>
                 </Link>
               </li>
               <li
                 className={currentLink === 5 ? "active" : "none"}
                 onClick={() => setCurrentLink(5)}
               >
-                <Link to='/account'>
-                  <BsFillChatTextFill />
-                  <span>Social Media</span>
+                <Link to="/companycategory">
+                  <GiTwirlCenter />
+                  <span>Company Category</span>
+                </Link>
+              </li> */}
+              <li
+                className={currentLink === 7 ? "active" : "none"}
+                onClick={() => setCurrentLink(7)}
+              >
+                <Link to="/people">
+                  <IoSettings />
+                  <span> People</span>
                 </Link>
               </li>
               <li
@@ -123,15 +132,7 @@ export default function Sidebar() {
                   <span> Profile</span>
                 </Link>
               </li>
-              {/* <li
-                className={currentLink === 7 ? "active" : "none"}
-                onClick={() => setCurrentLink(7)}
-              >
-                <Link to="/create-next-of-kin">
-                  <IoSettings />
-                  <span> Create Next of Kin</span>
-                </Link>
-              </li> */}
+       
               {/* <li
                 className={currentLink === 7 ? "active" : "none"}
                 onClick={() => setCurrentLink(7)}
@@ -167,36 +168,46 @@ export default function Sidebar() {
                 className={currentLink === 2 ? "active" : "none"}
                 onClick={() => setCurrentLink(2)}
               >
-                <a href="#">
+               <Link to="/business">
                   <RiDashboard2Fill />
-                  <span> KCB Deposits</span>
-                </a>
+                  <span>Business </span>
+                  </Link>
               </li>
               <li
                 className={currentLink === 3 ? "active" : "none"}
                 onClick={() => setCurrentLink(3)}
               >
-                <a href="#">
-                  <FaAddressCard />
-                  <span>EQUITY Deposts</span>
-                </a>
+              <Link to="/company">
+                <RiDashboard2Fill />
+                <span>Company </span>
+              </Link>
+              
               </li>
-              <li
+              {/* <li
                 className={currentLink === 4 ? "active" : "none"}
                 onClick={() => setCurrentLink(4)}
               >
-                <Link to="/next">
+                  <Link to="/businesscategory">
                   <GiTwirlCenter />
-                  <span> Next of king</span>
+                  <span> Business Category</span>
                 </Link>
               </li>
               <li
                 className={currentLink === 5 ? "active" : "none"}
                 onClick={() => setCurrentLink(5)}
               >
-                <Link to='/account'>
-                  <BsFillChatTextFill />
-                  <span>Social Media</span>
+                 <Link to="/companycategory">
+                  <GiTwirlCenter />
+                  <span>Company Category</span>
+                </Link>
+              </li> */}
+              <li
+                className={currentLink === 7 ? "active" : "none"}
+                onClick={() => setCurrentLink(7)}
+              >
+                <Link to="/people">
+                <FiLogOut />
+                  <span> People</span>
                 </Link>
               </li>
               <li
