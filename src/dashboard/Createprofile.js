@@ -89,7 +89,7 @@ function Createprofile() {
                         <h4 key={i}> {item} </h4>
                     </div>
                 )) : <p>{error} </p>
-}
+            }
             <form  encType="multipart/form-data" className="writeForm" onSubmit={handeleSubmit}>
                 <div className='profileStyle'>
                 { file && (
