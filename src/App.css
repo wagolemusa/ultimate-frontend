@@ -192,4 +192,10 @@
             font-size: 15px;
             padding: 5px;
         }
+        .form-sec{
+            width:400px; 
+            max-width: 100%;
+
+          
+        }
     }
