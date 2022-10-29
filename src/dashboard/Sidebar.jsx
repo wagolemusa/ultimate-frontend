@@ -52,8 +52,8 @@ export default function Sidebar() {
       <Section>
         <div className="top">
           <div className="brand">
-            <FaTaxi />
-            <span>ULTIMATE</span>
+            {/* <FaTaxi /> */}
+            <span>BLACK GOLD</span>
           </div>
           <div className="toggle">
             {navbarState ? (

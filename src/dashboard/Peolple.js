@@ -2,6 +2,8 @@ import React from "react";
 import Sidebar from "./Sidebar";
 
 const People = () => {
+
+
     return (
         <>
             <Sidebar />
@@ -21,6 +23,22 @@ const People = () => {
                                 <input type="number" class="form-control" id="phone" placeholder="Phone Number" name="phone" />
                             </div>
 
+                            <div class="form-group">
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                    <option>Status</option>
+                                    <option>vip</option>
+                                    <option>middle</option>
+                                    <option>local</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                    <option>District</option>
+                                    <option>kampala</option>
+                                    <option>wakiso</option>
+                                    <option>mukono</option>
+                                </select>
+                            </div>
                             <button type="submit" class="btn btn-primary">Create</button>
                         </form>
                     </div>

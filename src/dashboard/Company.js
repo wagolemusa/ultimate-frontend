@@ -16,14 +16,28 @@ const Company = () => {
 
                                 <input type="text" class="form-control" id="name" placeholder="Business Name" name="name" />
                             </div>
+     
 
                             <div class="form-group">
                                 <select class="form-control" id="exampleFormControlSelect1">
-                                    <option>Company Category</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                    <option>Select</option>
+                                    <option>company</option>
+                                    <option>hotels</option>
+                                    <option>college</option>
+                                    <option>unversity</option>
+                                    <option>hospital</option>
+                                    <option>unversity</option>
+                                    <option>transport</option>
+                                    <option>secondary schools</option>
+                                    <option>primary schools</option>
+                                    <option>international Schools</option>
+                                    <option>medical schools</option>
+                                    <option>day care</option>
+                                    <option>theology schools</option>
+                                    <option>vocation schools</option>
+                                    <option>sports schools</option>
+                                    <option>langeuage schools</option>
+
                                 </select>
                             </div>
 
@@ -46,6 +60,14 @@ const Company = () => {
 
                             <div class="form-group">
                                 <input type="text" class="form-control" id="name" placeholder="Facebook" name="subject" />
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                    <option>status</option>
+                                    <option>private</option>
+                                    <option>public</option>
+                                    <option>others</option>
+                                </select>
                             </div>
 
                             <div class="form-group">

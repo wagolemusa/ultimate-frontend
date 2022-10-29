@@ -21,9 +21,9 @@ const Business = () => {
                             <div class="form-group">
                                 <select class="form-control" id="exampleFormControlSelect1">
                                     <option>Business Category</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
+                                    <option>Hardware</option>
+                                    <option>Soloon</option>
+                                    <option>Barber</option>
                                     <option>5</option>
                                 </select>
                             </div>
@@ -52,8 +52,8 @@ const Business = () => {
                             <div class="form-group">
                                 <select class="form-control" id="exampleFormControlSelect1">
                                     <option>District</option>
-                                    <option>2</option>
-                                    <option>3</option>
+                                    <option>kampala</option>
+                                    <option>mukono</option>
                                     <option>4</option>
                                     <option>5</option>
                                 </select>
@@ -62,6 +62,16 @@ const Business = () => {
                             <div class="form-group">
                                 <input type="text" class="form-control" id="name" placeholder="Town" name="subject" />
                             </div>
+
+                            <div class="form-group">
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                    <option>Business Status</option>
+                                    <option>Big</option>
+                                    <option>Wholesale</option>
+                                    <option>Small</option>
+                                </select>
+                            </div>
+                            
                             <button type="submit" class="btn btn-primary">Create</button>
                         </form>
                     </div>
