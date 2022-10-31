@@ -17,7 +17,6 @@ function Login() {
         setSuccess("");
         //   dispatch({ type: "LOGIN_START" });
 
-
         const response = await axios.post("https://ultimatebackend.herokuapp.com/users/api/authenticate", {
 
             email: userRef.current.value,
