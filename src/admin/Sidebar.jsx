@@ -205,7 +205,7 @@ export default function Sidebar() {
                 className={currentLink === 7 ? "active" : "none"}
                 onClick={() => setCurrentLink(7)}
               >
-                <Link to="/people">
+                <Link to="/data-people">
                 <FiLogOut />
                   <span> People</span>
                 </Link>
