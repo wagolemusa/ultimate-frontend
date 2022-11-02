@@ -1,15 +1,15 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { Link } from "react-router-dom";
-import { Context } from '../context/Context';
 import axios from 'axios';
 
 function Login() {
 
     const userRef = useRef();
     const passwordRef = useRef();
-    const { dispatch } = useContext(Context);
+    // const { dispatch } = useContext(Context);
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -36,30 +36,17 @@ function Login() {
             setSuccess(response.data.message);
         }
 
-        if (response.status === 201) {
+        if (response.status === 201 && response.data.user.role === 'user') {
             const { token, user } = response.data;
             localStorage.setItem('token', token);
             localStorage.setItem('user', JSON.stringify(user));
+            window.location.replace("/dashboard")
 
-            try {
-                const { data } = await axios.get("https://ultimatebackend.herokuapp.com/nextofking/api/next-of-king", {
-                    headers: {
-                        'Authorization': token,
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    }
-                })
-                if (data) {
-                    window.location.assign('/dashboard')
-                } else {
-
-                    window.location.replace("create-next-of-kin")
-                }
-
-            } catch (error) {
-                window.location.replace("create-next-of-kin")
-            }
-
+        }else if(response.status === 201 && response.data.user.role === 'admin'){
+                const { token, admin } = response.data;
+                localStorage.setItem('token', token);
+                localStorage.setItem('admin', JSON.stringify(admin));
+                window.location.replace("/admin")
         }
 
         if (response?.data?.errors) {
