@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Sidebar from "./Sidebar";
 import axios from "axios";
+import District from './District'
 
 let token = localStorage.getItem('token')
 
@@ -15,6 +16,7 @@ const Company = () => {
     const [ status, setStatus ] = useState('')
     const [ website, setWebsite ] = useState('')
     const [ sociallink, setSociallink ] = useState('')
+    const [country, setCountry ] = useState('')
     const [ district, setDistrict ] = useState('')
     const [ town, setTown ] = useState('')
     const [error, setError] = useState("");
@@ -34,6 +36,7 @@ const Company = () => {
             status,
             website,
             sociallink,
+            country,
             district,
             town        
            
@@ -91,30 +94,43 @@ const Company = () => {
                                 />
                             </div>
      
-
-                            <div class="form-group">
-                                <select class="form-control" id="exampleFormControlSelect1"
-                                    onChange={(e) => setCampany_category(e.target.value)}
-                                >
-                                    <option>Select</option>
-                                    <option>company</option>
-                                    <option>hotels</option>
-                                    <option>college</option>
-                                    <option>unversity</option>
-                                    <option>hospital</option>
-                                    <option>unversity</option>
-                                    <option>transport</option>
-                                    <option>secondary schools</option>
-                                    <option>primary schools</option>
-                                    <option>international Schools</option>
-                                    <option>medical schools</option>
-                                    <option>day care</option>
-                                    <option>theology schools</option>
-                                    <option>vocation schools</option>
-                                    <option>sports schools</option>
-                                    <option>langeuage schools</option>
-
-                                </select>
+                            <div className="form-group">
+                            <input list="browsers3" name="browser1" id="browser3" class="form-control" placeholder="Campany categories"
+                                     onChange={(e) => setCampany_category(e.target.value)}
+                            />
+                            <datalist id="browsers3">
+                                <option value="company"/>
+                                <option value="hotels"/>
+                                <option value="unversity"/>
+                                <option value="hospital"/>
+                                <option value="transport"/>
+                                <option value="secondary schools"/>
+                                <option value="primary schools"/>
+                                <option value="international Schools"/>
+                                <option value="medical schools"/>
+                                <option value="day care"/>
+                                <option value="theology schools"/>
+                                <option value="vocation schools"/>
+                                <option value="sports schools"/>
+                                <option value="langeuage schools"/>
+                                <option value="energy"/>
+                                <option value="industrial"/>
+                                <option value="finace"/>
+                                <option value="healthcare"/>
+                                <option value="technology"/>
+                                <option value="building, contruction and maintenance"/>
+                                <option value="restaurants"/>
+                                <option value="food & bevarage"/>
+                                <option value="ratail shops"/>
+                                <option value="logisitc"/>
+                                <option value="media"/>
+                                <option value="travel & leisure"/>
+                                <option value="texiles"/>
+                                <option value="business services"/>
+                                <option value="integrated oil and gas"/>
+                                <option value="store"/>
+                                <option value="electronic"/>
+                            </datalist>
                             </div>
 
                             <div class="form-group">
@@ -160,18 +176,24 @@ const Company = () => {
                                 </select>
                             </div>
 
-                            <div class="form-group">
-                                <select class="form-control" id="exampleFormControlSelect1"
-                                     onChange={(e) => setDistrict(e.target.value)}
-                                >
-                                    <option>District</option>
-                                    <option>kampla</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
+                            <div className="form-group">
+                            <input list="browsers1" name="browser1" id="browser1" class="form-control" placeholder="Country"
+                             onChange={(e) => setCountry(e.target.value)}
+                            />
+                            <datalist id="browsers1">
+                                <option value="uganda"/>
+                                <option value="kenya"/>
+                            </datalist>
                             </div>
 
+                            <div className="form-group">
+                            <input list="browsers2" name="browser2" id="browser1" class="form-control" placeholder="District"
+                             onChange={(e) => setDistrict(e.target.value)}
+                            />
+                            <datalist id="browsers2">
+                                <District/>
+                            </datalist>
+                            </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" id="name" placeholder="Town" name="subject" 
                                      onChange={(e) => setTown(e.target.value)}

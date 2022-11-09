@@ -1,6 +1,7 @@
 import React, { useState} from "react";
 import Sidebar from "./Sidebar";
 import axios from "axios";
+import District from  "./District"
 
 let token = localStorage.getItem('token')
 
@@ -8,6 +9,7 @@ const People = () => {
     const [ name, setName ] = useState('')
     const [ phonenumber, setPhonenumber ] = useState('')
     const [ status, setStatus ] = useState('')
+    const [ country, setCountry] = useState('')
     const [ district, setDistrict ] = useState('')
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
@@ -20,6 +22,7 @@ const People = () => {
             name,
             phonenumber,
             status,
+            country,
             district
         }
 
@@ -86,27 +89,36 @@ const People = () => {
                                     onChange={(e) => setPhonenumber(e.target.value)}
                                 />
                             </div>
+                            
+                            <div className="form-group">
+                            <input list="browsers" name="browser" id="browser" class="form-control" placeholder="Status"
+                             onChange={(e) => setStatus(e.target.value)}
+                            />
+                            <datalist id="browsers">
+                                <option value="vip"/>
+                                <option value="middle"/>
+                                <option value="local"/>
+                            </datalist>
+                            </div>
+                            <div className="form-group">
+                            <input list="browsers1" name="browser1" id="browser1" class="form-control" placeholder="Country"
+                             onChange={(e) => setCountry(e.target.value)}
+                            />
+                            <datalist id="browsers1">
+                                <option value="uganda"/>
+                                <option value="kenya"/>
+                            </datalist>
+                            </div>
 
-                            <div class="form-group">
-                                <select class="form-control" id="exampleFormControlSelect1"
-                                 onChange={(e) => setStatus(e.target.value)}
-                                >
-                                    <option>Status</option>
-                                    <option>vip</option>
-                                    <option>middle</option>
-                                    <option>local</option>
-                                </select>
+                            <div className="form-group">
+                            <input list="browsers2" name="browser2" id="browser1" class="form-control" placeholder="District"
+                             onChange={(e) => setDistrict(e.target.value)}
+                            />
+                            <datalist id="browsers2">
+                                <District/>
+                            </datalist>
                             </div>
-                            <div class="form-group">
-                                <select class="form-control" id="exampleFormControlSelect1"
-                                 onChange={(e) => setDistrict(e.target.value)}
-                                 >
-                                    <option>District</option>
-                                    <option>kampala</option>
-                                    <option>wakiso</option>
-                                    <option>mukono</option>
-                                </select>
-                            </div>
+                          
                             <button type="submit" class="btn btn-primary">Create</button>
                         </form>
                     </div>

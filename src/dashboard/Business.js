@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Sidebar from "./Sidebar";
 import axios from 'axios'
-
+import District from './District'
 
 let token = localStorage.getItem('token')
 
@@ -15,6 +15,7 @@ const Business = () => {
     const [ website, setWebsite ] = useState('')
     const [ sociallink, setSociallink ] = useState('')
     const [ district, setDistrict ] = useState('')
+    const [ country, setCountry ] = useState('')
     const [ town, setTown ] = useState('')
     const [ category, setCategory ] = useState('')
     const [error, setError] = useState("");
@@ -34,6 +35,7 @@ const Business = () => {
             status,
             website,
             sociallink,
+            country,
             district,
             town
         }
@@ -93,18 +95,44 @@ const Business = () => {
 
                             </div>
 
-                            <div class="form-group">
-                                <select class="form-control" id="exampleFormControlSelect1"
-                                onChange={(e) => setCategory(e.target.value)}
-                                // category quries
-                                >
-                                    <option>Business Category</option>
-                                    <option>Hardware</option>
-                                    <option>Soloon</option>
-                                    <option>Barber</option>
-                                    <option>5</option>
-                                </select>
+                            <div className="form-group">
+                            <input list="browsers3" name="browser1" id="browser3" class="form-control" placeholder="Campany categories"
+                                           onChange={(e) => setCategory(e.target.value)}
+                            />
+                            <datalist id="browsers3">
+                                <option value="Hardware"/>
+                                <option value="hotels"/>
+                                <option value="Soloon"/>
+                                <option value="Barber"/>
+                                <option value="transport"/>
+                                <option value="day care"/>
+                                <option value="land property"/>
+                                <option value="restaurants"/>
+                                <option value="cosmetics shop"/>
+                                <option value="langeuage schools"/>
+                                <option value="phone accessories"></option>
+                                <option value="computer accessories"></option>
+                                <option value="energy"/>
+                                <option value="industrial"/>
+                                <option value="finace"/>
+                                <option value="healthcare"/>
+                                <option value="technology"/>
+                                <option value="building, contruction"/>
+                                <option value="food & bevarage"/>
+                                <option value="ratail shops"/>
+                                <option value="logisitc"/>
+                                <option value="media"/>
+                                <option value="travel & leisure"/>
+                                <option value="texiles"/>
+                                <option value="business services"/>
+                                <option value="integrated oil and gas"/>
+                                <option value="store"/>
+                                <option value="electronic"/>
+                                <option value="boutique" />
+                              
+                            </datalist>
                             </div>
+
 
                             <div class="form-group">
                                 <input type="number" class="form-control" id="phone" placeholder="Phone No1." name="phone" 
@@ -139,16 +167,23 @@ const Business = () => {
                                 />
                             </div>
 
-                            <div class="form-group">
-                                <select class="form-control" id="exampleFormControlSelect1"
-                                    onChange={(e) => setDistrict(e.target.value)}
-                                >
-                                    <option>District</option>
-                                    <option>kampala</option>
-                                    <option>mukono</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
+                            <div className="form-group">
+                            <input list="browsers1" name="browser1" id="browser1" class="form-control" placeholder="Country"
+                             onChange={(e) => setCountry(e.target.value)}
+                            />
+                            <datalist id="browsers1">
+                                <option value="uganda"/>
+                                <option value="kenya"/>
+                            </datalist>
+                            </div>
+
+                            <div className="form-group">
+                            <input list="browsers2" name="browser2" id="browser1" class="form-control" placeholder="District"
+                             onChange={(e) => setDistrict(e.target.value)}
+                            />
+                            <datalist id="browsers2">
+                                <District/>
+                            </datalist>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" id="name" placeholder="Town" name="subject" 
@@ -156,9 +191,7 @@ const Business = () => {
                                 />
                             </div>
 
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="name" placeholder="Town" name="subject" />
-                            </div>
+                
 
                             <div class="form-group">
                                 <select class="form-control" id="exampleFormControlSelect1"

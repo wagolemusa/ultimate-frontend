@@ -108,7 +108,7 @@ function CreateNextKin () {
                                 </div><br />
 
                          
-                                <button type="submit" class="btnSubmit">Save Next of kin</button>
+                                <button  type="submit"  class="btnSubmit">Save Next of kin</button>
                                 {/* <button type="submit" class="btn btn-primary">Save changes</button> */}
                         </form>
                     </div>
