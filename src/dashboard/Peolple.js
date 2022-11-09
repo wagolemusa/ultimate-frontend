@@ -85,7 +85,7 @@ const People = () => {
                             </div>
                  
                             <div class="form-group">
-                                <input type="number" class="form-control" id="phone" placeholder="Phone Number" name="phone" 
+                                <input type="number" class="form-control" id="phone" placeholder="+256725446xxx" name="phone" 
                                     onChange={(e) => setPhonenumber(e.target.value)}
                                 />
                             </div>

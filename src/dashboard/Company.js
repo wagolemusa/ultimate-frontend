@@ -134,12 +134,12 @@ const Company = () => {
                             </div>
 
                             <div class="form-group">
-                                <input type="number" class="form-control" id="phone" placeholder="Phone No1." name="phone" 
+                                <input type="number" class="form-control" id="phone" placeholder="+256725446xxx" name="phone" 
                                      onChange={(e) => setPhone(e.target.value)}
                                 />
                             </div>
                             <div class="form-group">
-                                <input type="number" class="form-control" id="phone" placeholder="Phone No2." name="phone" 
+                                <input type="number" class="form-control" id="phone" placeholder="+256725446xxx" name="phone" 
                                      onChange={(e) => setPhone1(e.target.value)}
                                 />
                             </div>

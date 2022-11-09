@@ -110,8 +110,8 @@ const Business = () => {
                                 <option value="restaurants"/>
                                 <option value="cosmetics shop"/>
                                 <option value="langeuage schools"/>
-                                <option value="phone accessories"></option>
-                                <option value="computer accessories"></option>
+                                <option value="phone accessories"/>
+                                <option value="computer accessories"/>
                                 <option value="energy"/>
                                 <option value="industrial"/>
                                 <option value="finace"/>
@@ -128,19 +128,19 @@ const Business = () => {
                                 <option value="integrated oil and gas"/>
                                 <option value="store"/>
                                 <option value="electronic"/>
-                                <option value="boutique" />
+                                <option value="men boutique" />
                               
                             </datalist>
                             </div>
 
 
                             <div class="form-group">
-                                <input type="number" class="form-control" id="phone" placeholder="Phone No1." name="phone" 
+                                <input type="number" class="form-control" id="phone" placeholder="+256725446xxx" name="phone" 
                                     onChange={(e) => setPhone(e.target.value)}
                                 />
                             </div>
                             <div class="form-group">
-                                <input type="number" class="form-control" id="phone" placeholder="Phone No2." name="phone"
+                                <input type="number" class="form-control" id="phone" placeholder="+256725446xxx" name="phone"
                                      onChange={(e) => setPhone1(e.target.value)}
                                 />
                             </div>
