@@ -17,7 +17,7 @@ const Phonesms = () => {
             to,
             message
         }
-        const response = await axios.post("http://localhost:5000/api/phone/sms", dataForm, {
+        const response = await axios.post("https://ultimatebackend.herokuapp.com/api/phone/sms", dataForm, {
             headers: {
                 'Authorization': token,
                  'Accept': 'application/json',
