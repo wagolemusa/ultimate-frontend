@@ -105,15 +105,24 @@ export default function Sidebar() {
                   <span> Users</span>
                 </Link>
               </li>
-              {/* <li
+              <li
                 className={currentLink === 5 ? "active" : "none"}
                 onClick={() => setCurrentLink(5)}
               >
-                <Link to="/companycategory">
+                <Link to="/phone">
                   <GiTwirlCenter />
-                  <span>Company Category</span>
+                  <span>Phone SMS</span>
                 </Link>
-              </li> */}
+              </li>
+              <li
+                className={currentLink === 7 ? "active" : "none"}
+                onClick={() => setCurrentLink(7)}
+              >
+                <Link to="/emails">
+                  <IoSettings />
+                  <span> Emails SMS</span>
+                </Link>
+              </li>
               <li
                 className={currentLink === 7 ? "active" : "none"}
                 onClick={() => setCurrentLink(7)}
@@ -133,15 +142,7 @@ export default function Sidebar() {
                 </Link>
               </li>
        
-              {/* <li
-                className={currentLink === 7 ? "active" : "none"}
-                onClick={() => setCurrentLink(7)}
-              >
-                <Link to="/create-profile">
-                  <IoSettings />
-                  <span> Create Profile</span>
-                </Link>
-              </li> */}
+         
             </ul>
           </div>
         </div>

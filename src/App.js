@@ -30,13 +30,12 @@ import GetBusiness from './admin/GetBusiness';
 import GetCompany from './admin/GetCompany';
 import GetPeople from './admin/GetPeople';
 import GetUsers from './admin/GetUsers';
-
+import Phonesms from './admin/Phonesms';
+import Emailsms from './admin/Emailsms';
 
 
 import { useDispatch, useSelector } from 'react-redux';
 import { isUserLoggedIn } from './actions/authactions';
-
-
 
 
 function App() {
@@ -81,6 +80,8 @@ function App() {
           <Route path='/data-business' element={auth.authenticate ? <GetBusiness/> : <Login />}  />
           <Route path='/data-company' element={auth.authenticate ? <GetCompany/> : <Login />}  />
           <Route path='/users' element={auth.authenticate ? <GetUsers/> : <Login />}  />
+          <Route path='/phone' element={auth.authenticate ? <Phonesms/> : <Login />}  />
+          <Route path='/emails' element={auth.authenticate ? <Emailsms/> : <Login />}  />
           
           <Route path="*" component={NotFound} />
 

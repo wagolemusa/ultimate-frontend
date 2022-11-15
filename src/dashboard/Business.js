@@ -9,11 +9,7 @@ const Business = () => {
     const [ business_name, setBusiness_name ] = useState('')
     const [ phone, setPhone ] = useState('')
     const [ phone1, setPhone1 ] = useState('')
-    const [ email , setEmail ] = useState('')
-    const [ email1, setEmail1 ] = useState('')
     const [ status, setStatus ] = useState('')
-    const [ website, setWebsite ] = useState('')
-    const [ sociallink, setSociallink ] = useState('')
     const [ district, setDistrict ] = useState('')
     const [ country, setCountry ] = useState('')
     const [ town, setTown ] = useState('')
@@ -30,11 +26,7 @@ const Business = () => {
             category,
             phone,
             phone1,
-            email,
-            email1,
             status,
-            website,
-            sociallink,
             country,
             district,
             town
@@ -96,7 +88,7 @@ const Business = () => {
                             </div>
 
                             <div className="form-group">
-                            <input list="browsers3" name="browser1" id="browser3" class="form-control" placeholder="Campany categories"
+                            <input list="browsers3" name="browser1" id="browser3" class="form-control" placeholder="Business categories"
                                            onChange={(e) => setCategory(e.target.value)}
                             />
                             <datalist id="browsers3">
@@ -132,40 +124,30 @@ const Business = () => {
                               
                             </datalist>
                             </div>
-
+                            <div class="form-group">
+                                <select class="form-control" id="exampleFormControlSelect1"
+                                    onChange={(e) => setStatus(e.target.value)}
+                                >
+                                    <option>Business Status</option>
+                                    <option>Big</option>
+                                    <option>Wholesale</option>
+                                    <option>Small</option>
+                                </select>
+                            </div>
 
                             <div class="form-group">
-                                <input type="number" class="form-control" id="phone" placeholder="+256725446xxx" name="phone" 
+                                <input type="number" class="form-control" id="phone" placeholder="256725446xxx" name="phone" 
                                     onChange={(e) => setPhone(e.target.value)}
                                 />
                             </div>
                             <div class="form-group">
-                                <input type="number" class="form-control" id="phone" placeholder="+256725446xxx" name="phone"
+                                <input type="number" class="form-control" id="phone" placeholder="256725446xxx" name="phone"
                                      onChange={(e) => setPhone1(e.target.value)}
                                 />
                             </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" id="name" placeholder="Email-One" name="email"
-                                     onChange={(e) => setEmail(e.target.value)}
-                                />
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" id="name" placeholder="Email-Two" name="email" 
-                                     onChange={(e) => setEmail1(e.target.value)}
-                                />
-                            </div>
+                      
 
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="name" placeholder="WebSite Url" name="subject" 
-                                     onChange={(e) => setWebsite(e.target.value)}
-                                />
-                            </div>
-
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="name" placeholder="Facebook" name="subject" 
-                                    onChange={(e) => setSociallink(e.target.value)}
-                                />
-                            </div>
+                          
 
                             <div className="form-group">
                             <input list="browsers1" name="browser1" id="browser1" class="form-control" placeholder="Country"
@@ -189,19 +171,6 @@ const Business = () => {
                                 <input type="text" class="form-control" id="name" placeholder="Town" name="subject" 
                                      onChange={(e) => setTown(e.target.value)}
                                 />
-                            </div>
-
-                
-
-                            <div class="form-group">
-                                <select class="form-control" id="exampleFormControlSelect1"
-                                    onChange={(e) => setStatus(e.target.value)}
-                                >
-                                    <option>Business Status</option>
-                                    <option>Big</option>
-                                    <option>Wholesale</option>
-                                    <option>Small</option>
-                                </select>
                             </div>
                             
                             <button type="submit" class="btn btn-primary">Create</button>
