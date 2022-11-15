@@ -61,6 +61,7 @@ const Company = () => {
             }
             if (response.status === 201) {
                 window.location.replace("/company")
+               
             }
 
             if (response?.data?.errors) {
@@ -134,12 +135,12 @@ const Company = () => {
                             </div>
 
                             <div class="form-group">
-                                <input type="number" class="form-control" id="phone" placeholder="+256725446xxx" name="phone" 
+                                <input type="number" class="form-control" id="phone" placeholder="256725446xxx" name="phone" 
                                      onChange={(e) => setPhone(e.target.value)}
                                 />
                             </div>
                             <div class="form-group">
-                                <input type="number" class="form-control" id="phone" placeholder="+256725446xxx" name="phone" 
+                                <input type="number" class="form-control" id="phone" placeholder="256725446xxx" name="phone" 
                                      onChange={(e) => setPhone1(e.target.value)}
                                 />
                             </div>

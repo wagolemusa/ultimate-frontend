@@ -11,6 +11,7 @@ const People = () => {
     const [ status, setStatus ] = useState('')
     const [ country, setCountry] = useState('')
     const [ district, setDistrict ] = useState('')
+    const [ town, setTown] = useState('')
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
 
@@ -23,7 +24,8 @@ const People = () => {
             phonenumber,
             status,
             country,
-            district
+            district,
+            town
         }
 
         const response = await axios.post("https://ultimatebackend.herokuapp.com/api/people", dataForm, {
@@ -45,6 +47,7 @@ const People = () => {
             }
             if (response.status === 201) {
                 window.location.replace("/people")
+             
             }
 
             if (response?.data?.errors) {
@@ -85,7 +88,7 @@ const People = () => {
                             </div>
                  
                             <div class="form-group">
-                                <input type="number" class="form-control" id="phone" placeholder="+256725446xxx" name="phone" 
+                                <input type="number" class="form-control" id="phone" placeholder="256725446xxx" name="phone" 
                                     onChange={(e) => setPhonenumber(e.target.value)}
                                 />
                             </div>
@@ -118,7 +121,11 @@ const People = () => {
                                 <District/>
                             </datalist>
                             </div>
-                          
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="name" placeholder="Town" name="subject" 
+                                     onChange={(e) => setTown(e.target.value)}
+                                />
+                            </div>
                             <button type="submit" class="btn btn-primary">Create</button>
                         </form>
                     </div>
