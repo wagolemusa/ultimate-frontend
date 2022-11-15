@@ -61,6 +61,7 @@ const Company = () => {
             }
             if (response.status === 201) {
                 window.location.replace("/company")
+               
             }
 
             if (response?.data?.errors) {
