@@ -212,6 +212,24 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li
+                className={currentLink === 5 ? "active" : "none"}
+                onClick={() => setCurrentLink(5)}
+              >
+                <Link to="/phone">
+                  <GiTwirlCenter />
+                  <span>Phone SMS</span>
+                </Link>
+              </li>
+              <li
+                className={currentLink === 7 ? "active" : "none"}
+                onClick={() => setCurrentLink(7)}
+              >
+                <Link to="/emails">
+                  <IoSettings />
+                  <span> Emails SMS</span>
+                </Link>
+              </li>
+              <li
                 className={currentLink === 6 ? "active" : "none"}
                 onClick={() => setCurrentLink(6)}
               >
