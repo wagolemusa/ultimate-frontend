@@ -1,8 +1,81 @@
-import React from "react";
+import React, { useEffect, useState} from "react";
 import Sidebar from "./Sidebar";
+import axios from "axios";
+let token = localStorage.getItem('token')
+
 
 const Admin = () => {
-    
+
+  const [countBus, setCountBus ] = useState()
+  const [countCompany, setCountCompany] = useState()
+  const [countpeople, setCountPeople ] = useState()
+  const [countuser, setCountuser ] = useState()
+
+  //  Count Business Functions
+  const getBusiness = () =>{
+    axios.get('https://ultimatebackend.herokuapp.com/api/business', {
+      headers: {
+        'Authorization': token,
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+      .then((res) => {
+        const countb = res.data.countbusiness;
+        setCountBus(countb)
+        
+      })
+  }
+
+  // count Companies function
+  const getCompany = () =>{
+    axios.get('https://ultimatebackend.herokuapp.com/api/company', {
+      headers: {
+        'Authorization': token,
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+      .then((res) => {
+        const countComp = res.data.countCompany;
+        setCountCompany(countComp)
+      })
+  }
+
+  // Count People function
+  const getPeople = () =>{
+    axios.get('https://ultimatebackend.herokuapp.com/api/people', {
+      headers: {
+        'Authorization': token,
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+      .then((res) => {
+        const countpeo = res.data.countPeople;
+        setCountPeople(countpeo)
+      })
+  }
+
+   // Count People function
+   const getUsers = () =>{
+    axios.get('https://ultimatebackend.herokuapp.com/users/api/authenticate', {
+      headers: {
+        'Authorization': token,
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+      .then((res) => {
+        const countU = res.data.countUser;
+        setCountuser(countU)
+      })
+  }
+
+  console.log(countuser)
+  useEffect(() => getBusiness(), getCompany(), getPeople(), getUsers(), []);
+
+
     return (
         <>
         <Sidebar />
@@ -17,7 +90,7 @@ const Admin = () => {
                 <i class="fab fa-avianex"></i>
                 </div>
                 
-                <h1 class="display-1">134</h1>
+                <h1 class="display-1">{countBus}</h1>
                 <h6 class="text-uppercase">Business</h6>
               </div>
             </div>
@@ -28,7 +101,7 @@ const Admin = () => {
                 <div class="rotate">
                 <i class="fas fa-signal"></i>
                 </div>
-                <h1 class="display-1">87</h1>
+                <h1 class="display-1">{countCompany}</h1>
                 <h6 class="text-uppercase">companies</h6>
 
               </div>
@@ -40,7 +113,7 @@ const Admin = () => {
                 <div class="rotate">
                 <i class="fas fa-star-and-crescent"></i>
                 </div>
-                <h1 class="display-1">125</h1>
+                <h1 class="display-1">{countpeople}</h1>
                 <h6 class="text-uppercase">Peolple</h6>
 
               </div>
@@ -52,7 +125,7 @@ const Admin = () => {
                 <div class="rotate">
                 <i class="fas fa-om"></i>
                 </div>
-                <h1 class="display-1">36</h1>
+                <h1 class="display-1">{countuser}</h1>
                 <h6 class="text-uppercase">Users</h6>
 
               </div>

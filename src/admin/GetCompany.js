@@ -64,7 +64,7 @@ const GetCompany = () => {
             <td>{companydata.website}</td>
             <td>{companydata.sociallink}</td>
             <td>{companydata.district}</td>
-            <td>{companydata.towm}</td>
+            <td>{companydata.town}</td>
           </tr>
           )
         })

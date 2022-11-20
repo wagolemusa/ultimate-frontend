@@ -38,7 +38,8 @@ const GetPeople = () => {
         <th scope="col">Name</th>
         <th scope="col">Phone</th>
         <th scope="col">Status</th>
-        <th scope="col">district</th>
+        <th scope="col">District</th>
+        <th scope="col">Town</th>
       </tr>
     </thead>
     <tbody>
@@ -50,6 +51,7 @@ const GetPeople = () => {
             <td>{peopledata.phonenumber}</td>
             <td>{peopledata.status}</td>
             <td>{peopledata.district}</td>
+            <td>{peopledata.town}</td>
           </tr>
           )
         })
