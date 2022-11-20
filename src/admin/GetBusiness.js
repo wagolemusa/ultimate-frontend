@@ -6,7 +6,7 @@ let token = localStorage.getItem('token')
 const GetBusiness = () =>{
 
   const [business, setBusiness ] = useState()
-
+  const [countBus, setCountBus ] = useState()
   const getBusiness = () =>{
     axios.get('https://ultimatebackend.herokuapp.com/api/business', {
 
@@ -19,12 +19,16 @@ const GetBusiness = () =>{
       .then((res) => {
         const myBusines = res.data.data;
         setBusiness(myBusines);
+
+        const countb = res.data.countbusiness;
+        setCountBus(countb)
         
       })
   }
   useEffect(() => getBusiness(), []);
 
   console.log(business)
+  console.log(countBus)
 
     return(
         <>
@@ -32,6 +36,7 @@ const GetBusiness = () =>{
        <div className='profileside'>
            <div class="container">
            <div class="table-responsive">
+            <h2>{countBus}</h2>
   <table class="table">
     <thead>
       <tr>
@@ -40,11 +45,7 @@ const GetBusiness = () =>{
         <th scope="col">category</th>
         <th scope="col">Phone</th>
         <th scope="col">Phone_NO_1</th>
-        <th scope="col">Email</th>
-        <th scope="col">Email_Two</th>
         <th scope="col">Status</th>
-        <th scope="col">Website</th>
-        <th scope="col">Social</th>
         <th scope="col">District</th>
         <th scope="col">Town</th>
       </tr>
@@ -58,12 +59,9 @@ const GetBusiness = () =>{
             <td>{businesdata.category}</td>
             <td>{businesdata.phone}</td>
             <td>{businesdata.phone1}</td>
-            <td>{businesdata.email}</td>
-            <td>{businesdata.email1}</td>
             <td>{businesdata.status}</td>
-            <td>{businesdata.sociallink}</td>
             <td>{businesdata.district}</td>
-            <td>{businesdata.towm}</td>
+            <td>{businesdata.town}</td>
           </tr>
           )
         })

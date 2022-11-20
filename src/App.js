@@ -9,6 +9,7 @@ import Home from './componets/Home';
 import ForgetPassord from './componets/Forgetpassword';
 import RegisterSuccessfully from './componets/RegisterSuccessfully';
 import CreateNextKin from './dashboard/CreateNextKin';
+import Korgas from './componets/Korgas';
 import NotFound from './NotFound';
 
 // Dashboard imports
@@ -58,6 +59,7 @@ function App() {
         <Routes>
           <Route exact path='/' element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/korgas" element={<Korgas />} />
           <Route path="/register" element={<Register />} />
           <Route path="/forgetpassword" element={<ForgetPassord />} />
           <Route path="/registerSuccessfully" element={<RegisterSuccessfully />} />
