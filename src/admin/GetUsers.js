@@ -8,7 +8,7 @@ const GetUsers = () =>{
   const [userinfo, setUserinfo ] = useState()
 
   const getUser = () =>{
-    axios.get('https://ultimatebackend.herokuapp.com/users/api/authenticate', {
+    axios.get('https://blockgold.onrender.com/users/api/authenticate', {
 
       headers: {
         'Authorization': token,

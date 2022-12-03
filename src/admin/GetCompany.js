@@ -8,7 +8,7 @@ const GetCompany = () => {
   const [company, setCompany ] = useState()
 
   const getCompany = () =>{
-    axios.get('https://ultimatebackend.herokuapp.com/api/company', {
+    axios.get('https://blockgold.onrender.com/api/company', {
 
       headers: {
         'Authorization': token,

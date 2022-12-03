@@ -43,7 +43,7 @@ const Profile = () => {
            
         }
         try {
-            const response = await axios.put("https://ultimatebackend.herokuapp.com/users/api/update",dataForm , {
+            const response = await axios.put("https://blockgold.onrender.com/users/api/update",dataForm , {
                 headers: {
                     'Authorization': token,
                     'Accept': 'application/json',

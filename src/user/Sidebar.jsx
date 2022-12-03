@@ -73,54 +73,54 @@ export default function Sidebar() {
                 className={currentLink === 1 ? "active" : "none"}
                 onClick={() => setCurrentLink(1)}
               >
-                <Link to="/dashboard">
+                <Link to="/dashbord-user">
                   <MdSpaceDashboard />
                   <span> Dashboard</span>
                 </Link>
               </li>
               <li
-                className={currentLink === 2 ? "active" : "none"}
+                className={currentLink === 3 ? "active" : "none"}
                 onClick={() => setCurrentLink(2)}
               >
-                <Link to="/business">
+              <Link to="/create-buz">
                   <RiDashboard2Fill />
-                  <span>Business </span>
-                  </Link>
+                  <span>Create business </span>
+                </Link>
               </li>
               <li
                 className={currentLink === 3 ? "active" : "none"}
                 onClick={() => setCurrentLink(3)}
               >
-              <Link to="/company">
+              <Link to="/email-list">
                   <RiDashboard2Fill />
-                  <span>Company </span>
+                  <span>Add Emill List </span>
                 </Link>
               </li>
-              {/* <li
+              <li
                 className={currentLink === 4 ? "active" : "none"}
                 onClick={() => setCurrentLink(4)}
               >
-                <Link to="/businesscategory">
+                <Link to="/phone-list">
                   <GiTwirlCenter />
-                  <span> Business Category</span>
+                  <span> Add Phones List</span>
                 </Link>
               </li>
               <li
                 className={currentLink === 5 ? "active" : "none"}
                 onClick={() => setCurrentLink(5)}
               >
-                <Link to="/companycategory">
+                <Link to="/email-user-sms">
                   <GiTwirlCenter />
-                  <span>Company Category</span>
+                  <span>Send Emails</span>
                 </Link>
-              </li> */}
+              </li>
               <li
                 className={currentLink === 7 ? "active" : "none"}
                 onClick={() => setCurrentLink(7)}
               >
-                <Link to="/people">
+                <Link to="/phone-user-sms">
                   <IoSettings />
-                  <span> People</span>
+                  <span> Send Phone sms</span>
                 </Link>
               </li>
               <li
@@ -155,59 +155,58 @@ export default function Sidebar() {
       <ResponsiveNav state={navbarState} className={navbarState ? "show" : ""}>
         <div className="responsive__links">
         <ul>
-              <li
+        <li
                 className={currentLink === 1 ? "active" : "none"}
                 onClick={() => setCurrentLink(1)}
               >
-                <Link to="/dashboard">
+                <Link to="/dashbord-user">
                   <MdSpaceDashboard />
                   <span> Dashboard</span>
                 </Link>
               </li>
               <li
-                className={currentLink === 2 ? "active" : "none"}
+                className={currentLink === 3 ? "active" : "none"}
                 onClick={() => setCurrentLink(2)}
               >
-               <Link to="/business">
+              <Link to="/create-buz">
                   <RiDashboard2Fill />
-                  <span>Business </span>
-                  </Link>
+                  <span>Create business </span>
+                </Link>
               </li>
               <li
                 className={currentLink === 3 ? "active" : "none"}
                 onClick={() => setCurrentLink(3)}
               >
-              <Link to="/company">
-                <RiDashboard2Fill />
-                <span>Company </span>
-              </Link>
-              
+              <Link to="/email-list">
+                  <RiDashboard2Fill />
+                  <span>Add Emill List </span>
+                </Link>
               </li>
-              {/* <li
+              <li
                 className={currentLink === 4 ? "active" : "none"}
                 onClick={() => setCurrentLink(4)}
               >
-                  <Link to="/businesscategory">
+                <Link to="/phone-list">
                   <GiTwirlCenter />
-                  <span> Business Category</span>
+                  <span> Add Phones List</span>
                 </Link>
               </li>
               <li
                 className={currentLink === 5 ? "active" : "none"}
                 onClick={() => setCurrentLink(5)}
               >
-                 <Link to="/companycategory">
+                <Link to="/email-user-sms">
                   <GiTwirlCenter />
-                  <span>Company Category</span>
+                  <span>Send Emails</span>
                 </Link>
-              </li> */}
+              </li>
               <li
                 className={currentLink === 7 ? "active" : "none"}
                 onClick={() => setCurrentLink(7)}
               >
-                <Link to="/people">
-                <FiLogOut />
-                  <span> People</span>
+                <Link to="/phone-user-sms">
+                  <IoSettings />
+                  <span> Send Phone sms</span>
                 </Link>
               </li>
               <li

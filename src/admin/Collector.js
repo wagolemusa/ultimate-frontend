@@ -1,8 +1,8 @@
 import React, { useState} from "react";
 import axios from 'axios'
+import Sidebar from "./Sidebar";
 
-
-function Register () {
+function Collector () {
     const initialValues = {
         firstname: "",
         lastname: "",
@@ -10,6 +10,7 @@ function Register () {
         phonenumber: "",
         idnumber: "",
         email: "",
+        role: "",
         password: ""
     }
 
@@ -54,10 +55,13 @@ function Register () {
 
     return (
         <div>
+             <Sidebar />
+       <div className='profileside'>
+           <div class="container">
         <div class="container login-container">
             <div class="row"> 
                 <div class="login-form-1">
-                <h3>Create Account</h3>
+                <h3>Add Collector</h3>
 
                         {!error && <div className='suc'>{success ? success : ""}</div>}
 
@@ -103,19 +107,25 @@ function Register () {
                                 />
                         </div>
                         <div class="form-group">
-                            <input type="email" name="email" class="form-control" placeholder="Your Email" required
+                            <input type="email" name="email" class="form-control" placeholder="Email" required
                                value={ formValues.email}
                                 onChange={handleChange}
                                 />
                         </div>
                         <div class="form-group">
-                            <input type="password" name="password" class="form-control" placeholder="Your Password" required
+                            <input type="text" name="role" class="form-control" placeholder="Role" required
+                               value={ formValues.role} 
+                               onChange={handleChange}
+                                />
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" class="form-control" placeholder="Password" required
                                value={ formValues.password} 
                                onChange={handleChange}
                                 />
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btnSubmit">Create Account</button>
+                            <button type="submit" class="btnSubmit">Create Collector</button>
                         </div>
 
                     </form>
@@ -123,7 +133,9 @@ function Register () {
                 </div>
                 </div>
         </div>
+        </div>
+        </div>
     )
 }
 
-export default Register;
+export default Collector;

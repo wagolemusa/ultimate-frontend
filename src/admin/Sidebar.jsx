@@ -193,15 +193,15 @@ export default function Sidebar() {
                   <span> Users</span>
                 </Link>
               </li>
-              {/* <li
+              <li
                 className={currentLink === 5 ? "active" : "none"}
                 onClick={() => setCurrentLink(5)}
               >
-                 <Link to="/companycategory">
+                 <Link to="/collector">
                   <GiTwirlCenter />
-                  <span>Company Category</span>
+                  <span>Collectors</span>
                 </Link>
-              </li> */}
+              </li>
               <li
                 className={currentLink === 7 ? "active" : "none"}
                 onClick={() => setCurrentLink(7)}
@@ -266,6 +266,7 @@ const Section = styled.section`
   align-items: center;
   justify-content: space-between;
   padding: 2rem 0;
+  overflow-y: auto;
   gap: 2rem;
   .top {
     display: flex;
@@ -344,6 +345,7 @@ const Section = styled.section`
     position: initial;
     width: 100%;
     height: max-content;
+    overflow-y: auto;
     padding: 1rem;
     .top {
       flex-direction: row;

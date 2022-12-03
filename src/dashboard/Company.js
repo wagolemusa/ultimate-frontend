@@ -42,7 +42,7 @@ const Company = () => {
            
         }
 
-        const response = await axios.post("https://ultimatebackend.herokuapp.com/api/company", dataForm, {
+        const response = await axios.post("https://blockgold.onrender.com/api/company", dataForm, {
             headers: {
                 'Authorization': token,
                  'Accept': 'application/json',

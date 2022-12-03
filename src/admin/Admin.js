@@ -13,7 +13,7 @@ const Admin = () => {
 
   //  Count Business Functions
   const getBusiness = () =>{
-    axios.get('https://ultimatebackend.herokuapp.com/api/business', {
+    axios.get('https://blockgold.onrender.com/api/business', {
       headers: {
         'Authorization': token,
         'Accept': 'application/json',
@@ -29,7 +29,7 @@ const Admin = () => {
 
   // count Companies function
   const getCompany = () =>{
-    axios.get('https://ultimatebackend.herokuapp.com/api/company', {
+    axios.get('https://blockgold.onrender.com/api/company', {
       headers: {
         'Authorization': token,
         'Accept': 'application/json',
@@ -44,7 +44,7 @@ const Admin = () => {
 
   // Count People function
   const getPeople = () =>{
-    axios.get('https://ultimatebackend.herokuapp.com/api/people', {
+    axios.get('https://blockgold.onrender.com/api/people', {
       headers: {
         'Authorization': token,
         'Accept': 'application/json',
@@ -59,7 +59,7 @@ const Admin = () => {
 
    // Count People function
    const getUsers = () =>{
-    axios.get('https://ultimatebackend.herokuapp.com/users/api/authenticate', {
+    axios.get('https://blockgold.onrender.com/users/api/authenticate', {
       headers: {
         'Authorization': token,
         'Accept': 'application/json',
