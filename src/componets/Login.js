@@ -17,7 +17,7 @@ function Login() {
         setSuccess("");
         //   dispatch({ type: "LOGIN_START" });
 
-        const response = await axios.post("https://ultimatebackend.herokuapp.com/users/api/authenticate", {
+        const response = await axios.post("https://blockgold.onrender.com/users/api/authenticate", {
 
             email: userRef.current.value,
             password: passwordRef.current.value,
@@ -36,19 +36,24 @@ function Login() {
             setSuccess(response.data.message);
         }
 
-        if (response.status === 201 && response.data.user.role === 'user') {
+        if (response.status === 201 && response.data.user.role === 'collector') {
+            const { token, collector } = response.data;
+            localStorage.setItem('token', token);
+            localStorage.setItem('collector', JSON.stringify(collector));
+            window.location.replace("/dashboard")
+
+        } else if (response.status === 201 && response.data.user.role === 'admin') {
+            const { token, admin } = response.data;
+            localStorage.setItem('token', token);
+            localStorage.setItem('admin', JSON.stringify(admin));
+            window.location.replace("/admin")
+
+        } else if (response.status === 201 && response.data.user.role === 'user') {
             const { token, user } = response.data;
             localStorage.setItem('token', token);
             localStorage.setItem('user', JSON.stringify(user));
-            window.location.replace("/dashboard")
-
-        }else if(response.status === 201 && response.data.user.role === 'admin'){
-                const { token, admin } = response.data;
-                localStorage.setItem('token', token);
-                localStorage.setItem('admin', JSON.stringify(admin));
-                window.location.replace("/admin")
+            window.location.replace("/dashbord-user")
         }
-
         if (response?.data?.errors) {
             const messages = response.data.errors.map(item => item.msg)
 

@@ -32,7 +32,7 @@ const Business = () => {
             town
         }
 
-        const response = await axios.post("https://ultimatebackend.herokuapp.com/api/business", businessForm, {
+        const response = await axios.post("https://blockgold.onrender.com/api/business", businessForm, {
             headers: {
                 'Authorization': token,
                  'Accept': 'application/json',

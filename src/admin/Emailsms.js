@@ -21,7 +21,7 @@ const Emailsms = () => {
             subject,
             html
         }
-        const response = await axios.post("https://ultimatebackend.herokuapp.com/api/message", dataForm, {
+        const response = await axios.post("https://blockgold.onrender.com/api/message", dataForm, {
             headers: {
                 'Authorization': token,
                  'Accept': 'application/json',

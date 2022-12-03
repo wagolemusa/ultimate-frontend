@@ -33,6 +33,17 @@ import GetPeople from './admin/GetPeople';
 import GetUsers from './admin/GetUsers';
 import Phonesms from './admin/Phonesms';
 import Emailsms from './admin/Emailsms';
+import Collector from './admin/Collector';
+
+// User Roles
+import User from './user/User';
+import Code from './user/Code';
+import EmailList from './user/EmailList';
+import PhoneList from './user/PhoneList';
+import EmailUserSms from './user/EmailUserSms'; 
+import PhoneUserSms from './user/PhoneUserSms';
+import CreateBusiness from './user/CreateBusiness';
+
 
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -84,6 +95,17 @@ function App() {
           <Route path='/users' element={auth.authenticate ? <GetUsers/> : <Login />}  />
           <Route path='/phone' element={auth.authenticate ? <Phonesms/> : <Login />}  />
           <Route path='/emails' element={auth.authenticate ? <Emailsms/> : <Login />}  />
+          <Route path='/collector' element={auth.authenticate ? <Collector/> : <Login />}  />
+
+          {/* User Routes */}
+          <Route path='/dashbord-user' element={auth.authenticate ? <User/> : <Login />}  />
+          <Route path='/code' element={auth.authenticate ? <Code/> : <Login />}  />
+          <Route path='/email-list' element={auth.authenticate ? <EmailList/> : <Login />}  />
+          <Route path='/phone-list' element={auth.authenticate ? <PhoneList/> : <Login />}  />
+          <Route path='/email-user-sms' element={auth.authenticate ? <EmailUserSms/> : <Login />}  />
+          <Route path='/phone-user-sms' element={auth.authenticate ? <PhoneUserSms/> : <Login />}  />
+          <Route path='/create-buz' element={auth.authenticate ? <CreateBusiness/> : <Login />}  />
+
           
           <Route path="*" component={NotFound} />
 

@@ -8,7 +8,7 @@ const GetBusiness = () =>{
   const [business, setBusiness ] = useState()
   const [countBus, setCountBus ] = useState()
   const getBusiness = () =>{
-    axios.get('https://ultimatebackend.herokuapp.com/api/business', {
+    axios.get('https://blockgold.onrender.com/api/business', {
 
       headers: {
         'Authorization': token,
