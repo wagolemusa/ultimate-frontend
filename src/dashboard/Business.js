@@ -14,6 +14,7 @@ const Business = () => {
     const [ country, setCountry ] = useState('')
     const [ town, setTown ] = useState('')
     const [ category, setCategory ] = useState('')
+    const [ oncall, setOncall ] = useState()
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
 
@@ -29,7 +30,8 @@ const Business = () => {
             status,
             country,
             district,
-            town
+            town,
+            oncall
         }
 
         const response = await axios.post("https://blockgold.onrender.com/api/business", businessForm, {
@@ -145,10 +147,6 @@ const Business = () => {
                                      onChange={(e) => setPhone1(e.target.value)}
                                 />
                             </div>
-                      
-
-                          
-
                             <div className="form-group">
                             <input list="browsers1" name="browser1" id="browser1" class="form-control" placeholder="Country"
                              onChange={(e) => setCountry(e.target.value)}
@@ -171,6 +169,17 @@ const Business = () => {
                                 <input type="text" class="form-control" id="name" placeholder="Town" name="subject" 
                                      onChange={(e) => setTown(e.target.value)}
                                 />
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control" id="exampleFormControlSelect1"
+                                    onChange={(e) => setOncall(e.target.value)}
+                                >
+                                    <option></option>
+                                    <option>homewears</option>
+                                    <option>onsaloon</option>
+                                    <option>onbeatyshop</option>
+                                    <option>boutique</option>
+                                </select>
                             </div>
                             
                             <button type="submit" class="btn btn-primary">Create</button>
