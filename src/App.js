@@ -50,17 +50,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { isUserLoggedIn } from './actions/authactions';
 
 
+   
 function App() {
-
-  const dispatch = useDispatch();
   const auth = useSelector(state => state.auth)
+  const dispatch = useDispatch();
 
   useEffect(() => {
+      
     if(!auth.authenticate){
         dispatch(isUserLoggedIn());
     }
     // dispatch(getInitialData());
-},[]);
+},[auth, dispatch]);
 
   return (
     <div className="App">
