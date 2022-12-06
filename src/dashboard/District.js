@@ -11,7 +11,7 @@ const District = () => {
             <option value="Lira" />
             <option value="Mbarara" />
             <option value="Bombo" />
-            <option value="Jinja" />
+            <option value="Jinja" />    
             <option value="Entebbe" />
             <option value="Kasese" />
             <option value="Kitgum" />

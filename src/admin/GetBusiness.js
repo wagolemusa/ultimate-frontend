@@ -7,28 +7,30 @@ const GetBusiness = () =>{
 
   const [business, setBusiness ] = useState()
   const [countBus, setCountBus ] = useState()
-  const getBusiness = () =>{
-    axios.get('https://blockgold.onrender.com/api/business', {
 
-      headers: {
-        'Authorization': token,
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
-    })
-      .then((res) => {
-        const myBusines = res.data.data;
-        setBusiness(myBusines);
 
-        const countb = res.data.countbusiness;
-        setCountBus(countb)
-        
+  useEffect(() => {
+    const getBusiness = () =>{
+      axios.get('https://blockgold.onrender.com/api/business', {
+  
+        headers: {
+          'Authorization': token,
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
       })
-  }
-  useEffect(() => getBusiness(), []);
+        .then((res) => {
+          const myBusines = res.data.data;
+          setBusiness(myBusines);
+          const countb = res.data.countbusiness;
+          setCountBus(countb)
+          
+        })
+    }
+    getBusiness()
 
-  console.log(business)
-  console.log(countBus)
+  },[]);
+
 
     return(
         <>

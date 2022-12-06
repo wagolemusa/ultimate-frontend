@@ -2,9 +2,6 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { MdSpaceDashboard } from "react-icons/md";
 import { RiDashboard2Fill } from "react-icons/ri";
-import { FaAddressCard, FaTaxi } from "react-icons/fa";
-import { GiTwirlCenter } from "react-icons/gi";
-import { BsFillChatTextFill } from "react-icons/bs";
 import { IoSettings } from "react-icons/io5";
 import { FiLogOut } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -146,10 +143,12 @@ export default function Sidebar() {
           </div>
         </div>
         <div className="logout">
-          <a href="#">
-            <FiLogOut />
+          <Link to="/logout">
+          <FiLogOut />
             <span className="logout">Logout</span>
-          </a>
+          </Link>
+          
+
         </div>
       </Section>
       <ResponsiveNav state={navbarState} className={navbarState ? "show" : ""}>

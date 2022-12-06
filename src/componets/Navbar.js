@@ -1,14 +1,13 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import f from './f.png'
 import { Link } from "react-router-dom";
-import { Context } from  '../context/Context'
-import axios from 'axios';
-import { useDispatch, useSelector } from 'react-redux'
+
+import {  useSelector } from 'react-redux'
 function Navbar() {
 
     const auth = useSelector(state => state.auth)
 
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
     // const logout = () => {
 

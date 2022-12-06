@@ -7,25 +7,25 @@ const GetCompany = () => {
     
   const [company, setCompany ] = useState()
 
-  const getCompany = () =>{
-    axios.get('https://blockgold.onrender.com/api/company', {
-
-      headers: {
-        'Authorization': token,
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
-    })
-      .then((res) => {
-        const myCompany = res.data.data;
-        setCompany(myCompany);
-        
+  useEffect(() => {
+    const getCompany = () =>{
+      axios.get('https://blockgold.onrender.com/api/company', {
+  
+        headers: {
+          'Authorization': token,
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
       })
-  }
-  useEffect(() => getCompany(), []);
-
-  console.log(company)
-
+        .then((res) => {
+          const myCompany = res.data.data;
+          setCompany(myCompany);
+          
+        })
+    }
+    getCompany()
+    
+   }, []);
 
     return(
         <>

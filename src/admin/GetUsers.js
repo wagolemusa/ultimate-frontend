@@ -7,24 +7,28 @@ const GetUsers = () =>{
 
   const [userinfo, setUserinfo ] = useState()
 
-  const getUser = () =>{
-    axios.get('https://blockgold.onrender.com/users/api/authenticate', {
 
-      headers: {
-        'Authorization': token,
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
-    })
-      .then((res) => {
-        const myUser = res.data.user;
-        setUserinfo(myUser);
-        
+  useEffect(() => {
+    const getUser = () =>{
+      axios.get('https://blockgold.onrender.com/users/api/authenticate', {
+  
+        headers: {
+          'Authorization': token,
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
       })
-  }
-  useEffect(() => getUser(), []);
+        .then((res) => {
+          const myUser = res.data.user;
+          setUserinfo(myUser);
+          
+        })
+    }
+    getUser()
+    
+  },[]);
 
-  console.log(userinfo)
+
 
     return(
         <>

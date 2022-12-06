@@ -7,24 +7,29 @@ const GetPeople = () => {
 
   const [people, setPeople ] = useState()
 
-  const getPeople = () =>{
-    axios.get('https://blockgold.onrender.com/api/people', {
 
-      headers: {
-        'Authorization': token,
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
-    })
-      .then((res) => {
-        const myPeople = res.data.data;
-        setPeople(myPeople);
-        
-      })
-  }
-  useEffect(() => getPeople(), []);
+  useEffect(() => {
+    const getPeople = () =>{
+      axios.get('https://blockgold.onrender.com/api/people', {
   
-  console.log(people)
+        headers: {
+          'Authorization': token,
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      })
+        .then((res) => {
+          const myPeople = res.data.data;
+          setPeople(myPeople);
+          
+        })
+    }
+    
+    getPeople()
+  
+  } , []);
+  
+
     return(
         <>
         <Sidebar />

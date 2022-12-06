@@ -11,9 +11,29 @@ const Admin = () => {
   const [countpeople, setCountPeople ] = useState()
   const [countuser, setCountuser ] = useState()
 
-  //  Count Business Functions
-  const getBusiness = () =>{
-    axios.get('https://blockgold.onrender.com/api/business', {
+
+
+   // Count People function
+ 
+
+  useEffect(() => {
+
+    const getUsers = () =>{
+      axios.get('https://blockgold.onrender.com/users/api/authenticate', {
+        headers: {
+          'Authorization': token,
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      })
+        .then((res) => {
+          const countU = res.data.countUser;
+          setCountuser(countU)
+        })
+    }
+      // Count People function
+  const getPeople = () =>{
+    axios.get('https://blockgold.onrender.com/api/people', {
       headers: {
         'Authorization': token,
         'Accept': 'application/json',
@@ -21,9 +41,8 @@ const Admin = () => {
       }
     })
       .then((res) => {
-        const countb = res.data.countbusiness;
-        setCountBus(countb)
-        
+        const countpeo = res.data.countPeople;
+        setCountPeople(countpeo)
       })
   }
 
@@ -42,9 +61,9 @@ const Admin = () => {
       })
   }
 
-  // Count People function
-  const getPeople = () =>{
-    axios.get('https://blockgold.onrender.com/api/people', {
+  //  Count Business Functions
+  const getBusiness = () =>{
+    axios.get('https://blockgold.onrender.com/api/business', {
       headers: {
         'Authorization': token,
         'Accept': 'application/json',
@@ -52,28 +71,19 @@ const Admin = () => {
       }
     })
       .then((res) => {
-        const countpeo = res.data.countPeople;
-        setCountPeople(countpeo)
+        const countb = res.data.countbusiness;
+        setCountBus(countb)
+        
       })
   }
 
-   // Count People function
-   const getUsers = () =>{
-    axios.get('https://blockgold.onrender.com/users/api/authenticate', {
-      headers: {
-        'Authorization': token,
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
-    })
-      .then((res) => {
-        const countU = res.data.countUser;
-        setCountuser(countU)
-      })
-  }
 
-  console.log(countuser)
-  useEffect(() => getBusiness(), getCompany(), getPeople(), getUsers(), []);
+    getBusiness()
+     getCompany()
+      getPeople()
+       getUsers();
+
+  },[]);
 
 
     return (
