@@ -6,7 +6,7 @@ const initState = {
     loading: false
 }
 
-export default (state = initState, action) => {
+const UserReducers = (state = initState, action) => {
     switch(action.type){
         case userContants.USER_REGISTER_REQUEST:
             state = {
@@ -28,6 +28,12 @@ export default (state = initState, action) => {
                 error: action.payload.error
             }
             break;
+        default:{
+            state = {
+                ...state,
+            }
+        }
     }
     return state
 }
+export default UserReducers

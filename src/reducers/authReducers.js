@@ -15,7 +15,7 @@ const initState = {
     message: ''
 };
 
-export default (state = initState, action) => {
+const AuthReducers = (state = initState, action) => {
     console.log(action)
     switch (action.type) {
         case authConstants.LOGIN_REQUEST:
@@ -51,6 +51,12 @@ export default (state = initState, action) => {
                 loading: false
             }
             break;
+        default:
+            state = {
+                ...initState
+            }
     }
     return state;
 }
+
+export default AuthReducers;
