@@ -3,31 +3,32 @@ import axios from 'axios'
 
 
 function Register () {
-    const initialValues = {
-        firstname: "",
-        lastname: "",
-        middlename: "",
-        phonenumber: "",
-        idnumber: "",
-        email: "",
-        password: ""
-    }
-
-    const [formValues, setFormValues] = useState(initialValues);
+        
+    const [firstname, setFirstname ] = useState('')
+    const [lastname, setLastname ] = useState('')
+    const [idnumber, setIdnumber ] = useState('')
+    const [phonenumber, setPhonenumber ] = useState('')
+    const [email, setEmail ] = useState('')
+    const [password, setPassword ] = useState('')
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
     
 
-    const handleChange = (e) => {
-        const  { name, value } = e.target;
-        setFormValues({ ...formValues, [name]: value });
-    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null);
+
+        const initialValues = {
+            firstname,
+            lastname,
+            phonenumber,
+            idnumber,
+            email,
+            password
+        }
   
-          const response = await axios.post("https://blockgold.onrender.com/users/api/register",formValues)
+          const response = await axios.post("https://blockgold.onrender.com/users/api/register",initialValues)
          
           .catch((err) => {
               console.log(err.response.data)
@@ -73,45 +74,33 @@ function Register () {
                     <form onSubmit={handleSubmit}>
                         <div class="form-group">
                             <input type="text" name="firstname" class="form-control" placeholder="First Name " required
-                                value={ formValues.firstname}
-                                onChange={handleChange}
+                               onChange={(e) => setFirstname(e.target.value)}
                             />
                         </div>
                         <div class="form-group">
                             <input type="text" name="lastname" class="form-control" placeholder="Last Name" required
-                             value={ formValues.lastname}
-                             onChange={handleChange}
+                            onChange={(e) => setLastname(e.target.value)}
                              />
-                        </div>
-                        <div class="form-group">
-                            <input type="text"  name="middlename" class="form-control" placeholder="Middle Name" required
-                                value={ formValues.middlename}
-                                onChange={handleChange}
-                                />
                         </div>
                   
                         <div class="form-group">
                             <input type="number" name="phonenumber" class="form-control" placeholder="Phone Number" required
-                               value={ formValues.phonenumber}
-                               onChange={handleChange}
+                               onChange={(e) => setPhonenumber(e.target.value)}
                                 />
                         </div>
                         <div class="form-group">
                             <input type="number" name="idnumber" class="form-control" placeholder="ID Number" required
-                               value={ formValues.idnumber}
-                               onChange={handleChange}
+                               onChange={(e) => setIdnumber(e.target.value)}
                                 />
                         </div>
                         <div class="form-group">
                             <input type="email" name="email" class="form-control" placeholder="Your Email" required
-                               value={ formValues.email}
-                                onChange={handleChange}
+                             onChange={(e) => setEmail(e.target.value)}
                                 />
                         </div>
                         <div class="form-group">
                             <input type="password" name="password" class="form-control" placeholder="Your Password" required
-                               value={ formValues.password} 
-                               onChange={handleChange}
+                             onChange={(e) => setPassword(e.target.value)}
                                 />
                         </div>
                         <div class="form-group">
