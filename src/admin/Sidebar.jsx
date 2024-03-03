@@ -140,6 +140,15 @@ export default function Sidebar() {
                 </Link>
               </li>
        
+              <li
+                className={currentLink === 7 ? "active" : "none"}
+                onClick={() => setCurrentLink(7)}
+              >
+                <Link to="/bt">
+                  <IoSettings />
+                  <span>BT-DATA</span>
+                </Link>
+              </li>
          
             </ul>
           </div>

@@ -27,6 +27,7 @@ import GetUsers from './admin/GetUsers';
 import Phonesms from './admin/Phonesms';
 import Emailsms from './admin/Emailsms';
 import Collector from './admin/Collector';
+import Bt from './admin/Bt';
 
 // User Roles
 import User from './user/User';
@@ -37,13 +38,10 @@ import EmailUserSms from './user/EmailUserSms';
 import PhoneUserSms from './user/PhoneUserSms';
 import CreateBusiness from './user/CreateBusiness';
 
-
-
 import { useDispatch, useSelector } from 'react-redux';
 import { isUserLoggedIn } from './actions/authactions';
 
 
-   
 function App() {
   const auth = useSelector(state => state.auth)
   const dispatch = useDispatch();
@@ -84,6 +82,7 @@ function App() {
           <Route path='/phone' element={auth.authenticate ? <Phonesms/> : <Login />}  />
           <Route path='/emails' element={auth.authenticate ? <Emailsms/> : <Login />}  />
           <Route path='/collector' element={auth.authenticate ? <Collector/> : <Login />}  />
+          <Route path="/bt" element={<Bt />} />
 
           {/* User Routes */}
           <Route path='/dashbord-user' element={auth.authenticate ? <User/> : <Login />}  />
