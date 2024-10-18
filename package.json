@@ -6,6 +6,7 @@
     "ajv": "^8.17.1",
     "axios": "^1.7.7",
     "http-proxy-middleware": "^3.0.3",
+    "is-plain-object": "^5.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.3.0",
@@ -14,8 +15,10 @@
     "react-scripts": "^5.0.1",
     "redux": "^5.0.1",
     "redux-thunk": "^3.1.0",
+    "scrollreveal": "^4.0.9",
     "serve": "^14.2.4",
     "styled-components": "^6.1.13",
+    "typescript": "^4.9.5",
     "web-vitals": "^4.2.3"
   },
   "scripts": {
